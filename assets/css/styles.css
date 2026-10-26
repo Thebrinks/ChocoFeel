@@ -314,7 +314,7 @@ input {
     margin-block: .5rem 2rem;
 }
 
-home__img {
+.home__img {
     justify-self: flex-end;
 }
 
@@ -481,7 +481,7 @@ home__img {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    transition: all 0.3s cubic-bezier(0.71, 1.7 0.77, 1.24)
+    transition: all 0.3s cubic-bezier(0.71, 1.7, 0.77, 1.24)
 }
 
 .action__btn::before {

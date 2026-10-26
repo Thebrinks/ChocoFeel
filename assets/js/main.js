@@ -34,13 +34,26 @@ function createBadges(product) {
   return html;
 }
 
-/* HTML de una tarjeta de producto. extraClass sirve para añadir
-   "swiper-slide" a las tarjetas que van dentro de un carrusel */
-function createProductCard(product, extraClass = '') {
+/* Precio actual + precio anterior tachado (si tiene). Lo usan las
+   tarjetas y el showcase */
+function createPrices(product) {
   const oldPrice = product.oldPrice
     ? `<span class="old__price">${formatPrice(product.oldPrice)}</span>`
     : '';
 
+  return `
+    <span class="new__price">${formatPrice(product.price)}</span>
+    ${oldPrice}`;
+}
+
+/* Convierte una lista de ids en la lista de productos completos */
+function findProducts(productIds) {
+  return productIds.map((id) => products.find((product) => product.id === id));
+}
+
+/* HTML de una tarjeta de producto. extraClass sirve para añadir
+   "swiper-slide" a las tarjetas que van dentro de un carrusel */
+function createProductCard(product, extraClass = '') {
   return `
     <div class="product__item ${extraClass}">
       <div class="product__banner">
@@ -75,10 +88,7 @@ function createProductCard(product, extraClass = '') {
           <i class="fi fi-rs-star"></i>
           <i class="fi fi-rs-star"></i>
         </div>
-        <div class="product__price flex">
-          <span class="new__price">${formatPrice(product.price)}</span>
-          ${oldPrice}
-        </div>
+        <div class="product__price flex">${createPrices(product)}</div>
 
         <a href="#" class="action__btn cart__btn" aria-label="Agregar al carrito">
           <i class="fi fi-rs-shopping-bag-add"></i>
@@ -91,9 +101,33 @@ function createProductCard(product, extraClass = '') {
 function renderProducts(containerSelector, productIds, extraClass = '') {
   const container = document.querySelector(containerSelector);
 
-  container.innerHTML = productIds
-    .map((id) => products.find((product) => product.id === id))
+  container.innerHTML = findProducts(productIds)
     .map((product) => createProductCard(product, extraClass))
+    .join('');
+}
+
+/* HTML de un producto del showcase (versión pequeña: imagen, nombre y precio) */
+function createShowcaseItem(product) {
+  return `
+    <div class="showcase__item">
+      <a href="details.html" class="showcase__img-box">
+        <img src="${product.image}" loading="lazy" alt="${product.name}" class="showcase__img">
+      </a>
+      <div class="showcase__content">
+        <a href="details.html">
+          <h4 class="showcase__title">${product.name}</h4>
+        </a>
+        <div class="showcase__price flex">${createPrices(product)}</div>
+      </div>
+    </div>`;
+}
+
+/* Igual que renderProducts, pero con la plantilla del showcase */
+function renderShowcase(containerSelector, productIds) {
+  const container = document.querySelector(containerSelector);
+
+  container.innerHTML = findProducts(productIds)
+    .map(createShowcaseItem)
     .join('');
 }
 
@@ -102,6 +136,11 @@ renderProducts('#popular .products__container', sections.popular);
 renderProducts('#new-added .products__container', sections.newAdded);
 /* Las tarjetas del carrusel se dibujan antes de crear el Swiper (más abajo) */
 renderProducts('.new__container .swiper-wrapper', sections.newArrivals, 'swiper-slide');
+
+renderShowcase('#showcase-launches', showcase.launches);
+renderShowcase('#showcase-offers', showcase.offers);
+renderShowcase('#showcase-best-sellers', showcase.bestSellers);
+renderShowcase('#showcase-trending', showcase.trending);
 
 /*=============== SWIPER FEATURES ===============*/
 var swiperFeatured = new Swiper('.features__container', {

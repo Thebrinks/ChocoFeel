@@ -452,12 +452,6 @@ input {
     transform: scale(1.1);
 }
 
-.product__img.hover {
-    position:absolute;
-    top: 0;
-    left: 0;
-}
-
 .product__actions {
     position: absolute;
     top: 50%;
@@ -611,11 +605,9 @@ input {
 }
 
 /* Product Hover */
-.product__img.hover,
 .product__actions,
 .action__btn::before,
-.action__btn::after,
-.product__item:hover .product__img.default {
+.action__btn::after {
     opacity: 0;
 }
 
@@ -623,7 +615,6 @@ input {
     box-shadow: 0 0 10px #0000001a;
 }
 
-.product__item:hover .product__img:hover,
 .product__item:hover .product__actions,
 .action__btn:hover::before,
 .action__btn:hover::after {

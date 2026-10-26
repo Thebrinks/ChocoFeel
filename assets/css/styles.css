@@ -671,12 +671,14 @@ input {
     column-gap: 1.5rem;
 }
 
-.showcase__item:not(.last-child) {
+.showcase__item:not(:last-child) {
     margin-bottom: 1.5rem;
 }
 
 .showcase__img {
     width: 86px;
+    aspect-ratio: 5 / 4;
+    object-fit: cover;
 }
 
 .showcase__content {

@@ -394,6 +394,7 @@ home__img {
 .swiper-button-next {
     right: 0;
 }
+
 /*=============== PRODUCTS ===============*/
 .tab__btns {
     display: flex;
@@ -628,6 +629,8 @@ home__img {
     color: var(--body-color);
 }
 
-
-
+/*=============== NEW ARRIVALS ===============*/
+.new__arrivals {
+    overflow: hidden;
+}
 

@@ -30,7 +30,7 @@ var swiperfeatured = new Swiper('.features__container', {
           1400: {
             slidesPerView: 6,
             spaceBetween: 24,
-          },
+          }, 
         },
       });
 
@@ -38,3 +38,23 @@ var swiperfeatured = new Swiper('.features__container', {
 
 
 /*=============== PRODUCTS TABS ===============*/
+/*================= PRODUCTS TABS =================*/
+const tabs = document.querySelectorAll('[data-target]'),
+      tabContents = document.querySelectorAll('[content]');
+
+tabs.forEach((tab) => {
+  tab.addEventListener('click', () => {
+    const target = document.querySelector(tab.dataset.target);
+    tabContents.forEach((tabContent) => {
+      tabContent.classList.remove('active-tab');
+    });
+
+    target.classList.add('active-tab');
+
+    tabs.forEach((tab) => {
+      tab.classList.remove('active-tab');
+    });
+
+    tab.classList.add('active-tab');
+  });
+});

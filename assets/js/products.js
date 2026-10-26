@@ -255,3 +255,12 @@ const sections = {
         'cacao-nativo',
     ],
 };
+
+/*=============== SHOWCASE ===============*/
+/* Las 4 columnas del showcase: qué productos (por su id) muestra cada una */
+const showcase = {
+    launches: ['vino', 'frutos-rojos', 'arequipe-con-coco'],
+    offers: ['arequipe', 'espiral', 'corazon'],
+    bestSellers: ['maracuya', 'frutos-rojos', 'zafiro-de-frutos-rojos'],
+    trending: ['brownie', 'flan', 'frutos-rojos-con-limon'],
+};

@@ -215,3 +215,19 @@ tabs.forEach((tab) => {
     tab.classList.add('active-tab');
   });
 });
+
+/*=============== NEWSLETTER ===============*/
+/* Todavía no hay servidor que guarde los correos: al enviar el formulario
+   se evita que la página se recargue y se muestra un mensaje de gracias.
+   El navegador ya comprueba que el correo sea válido (type="email" required) */
+const newsletterForm = document.getElementById('newsletter-form');
+
+newsletterForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  const message = document.createElement('p');
+  message.className = 'newsletter__success';
+  message.textContent = '¡Gracias por unirte! Pronto recibirás nuestras dulces novedades.';
+
+  newsletterForm.replaceWith(message);
+});

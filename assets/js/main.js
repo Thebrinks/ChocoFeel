@@ -218,8 +218,8 @@ tabs.forEach((tab) => {
 
 /*=============== NEWSLETTER ===============*/
 /* Todavía no hay servidor que guarde los correos: al enviar el formulario
-   se evita que la página se recargue y se muestra un mensaje de gracias.
-   El navegador ya comprueba que el correo sea válido (type="email" required) */
+  se evita que la página se recargue y se muestra un mensaje de gracias.
+  El navegador ya comprueba que el correo sea válido (type="email" required) */
 const newsletterForm = document.getElementById('newsletter-form');
 
 newsletterForm.addEventListener('submit', (event) => {

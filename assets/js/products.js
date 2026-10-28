@@ -1,9 +1,9 @@
 /*=============== PRODUCTOS ===============*/
 /* Cada producto se escribe una sola vez aquí:
-   - id: nombre corto sin espacios ni tildes, se usa en "sections" (abajo)
-   - price / oldPrice: números sin puntos ni "COP" (el formato se añade solo)
-   - oldPrice: null si no tiene precio anterior
-   - offer: true muestra "Oferta" y el % de descuento (se calcula solo)
+    - id: nombre corto sin espacios ni tildes, se usa en "sections" (abajo)
+    - price / oldPrice: números sin puntos ni "COP" (el formato se añade solo)
+    - oldPrice: null si no tiene precio anterior
+    - offer: true muestra "Oferta" y el % de descuento (se calcula solo)
    - badges: etiquetas; su color se define en BADGE_COLORS */
 const products = [
     {

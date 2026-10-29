@@ -778,8 +778,13 @@ input {
     padding-block: 2.5rem;
 }
 
+.footer__logo {
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
 .footer__logo-img {
-    width: 120px;
+    width: 150px;
 }
 
 .footer__subtitle {
@@ -832,6 +837,7 @@ input {
     justify-content: space-between;
     padding-block: 1.25rem;
     border-top: 1px solid var(--border-color-alt);
+    align-items: center;
 }
 
 .copyright,
@@ -839,3 +845,42 @@ input {
     color: var(--text-color-light);
     font-size: var(--small-font-size);
 }
+
+.designer a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.3s var(--transition);
+}
+
+.designer a:hover {
+    color: var(--first-color);
+}
+
+/*=============== BREADCRUMBS ===============*/
+.breadcrumb {
+    background-color: var(--container-color);
+    padding-block: 1.5rem;
+}
+
+.breadcrumb__list {
+    column-gap: 0.75rem;
+}
+
+.breadcrumb__link {
+    color: var(--text-color);
+    font-size: var(--small-font-size);
+}
+/*=============== SHOP ===============*/
+
+/*=============== DETAILS ===============*/
+
+/*=============== DETAILS INFO & REVIEWS ===============*/
+
+/*=============== CART ===============*/
+
+/*=============== CART OTHERS ===============*/
+
+/*=============== WISHLIST ===============*/
+
+/*=============== SHOWCASE ===============*/

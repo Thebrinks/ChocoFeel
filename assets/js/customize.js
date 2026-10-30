@@ -236,40 +236,42 @@ messageInput.addEventListener('input', () => {
   document.getElementById('message-count').textContent = messageInput.value.length;
 });
 
-/* Todavía no hay servidor: la caja se guarda en el navegador (localStorage)
-   para que la página del carrito pueda leerla después */
+/* La caja se agrega al carrito con addToCart (main.js). Cada caja es un
+   artículo distinto, porque dos cajas pueden tener opciones diferentes */
 form.addEventListener('submit', (event) => {
   event.preventDefault();
 
   const selection = getSelection();
   const unitPrice = getUnitPrice(selection);
 
-  const item = {
-    id: Date.now(),
+  const details = [
+    `Forma: ${selection.shape.name}`,
+    `Chocolate: ${selection.chocolate.name}`,
+    `Relleno: ${selection.filling.name}`,
+    `Decoración: ${selection.decoration.name}`,
+  ];
+  if (selection.colors.length > 0) {
+    details.push(`Colores: ${selection.colors.map((color) => color.name).join(', ')}`);
+  }
+  if (selection.mood) {
+    details.push(`Emoción: ${selection.mood.name}`);
+  }
+  if (selection.message) {
+    details.push(`Mensaje: "${selection.message}"`);
+  }
+
+  const added = addToCart({
+    key: `caja-${Date.now()}`,
     name: `Caja de ${selection.box} bombones personalizados`,
     image: findProducts([selection.shape.productId])[0].image,
-    details: {
-      emocion: selection.mood ? selection.mood.name : null,
-      forma: selection.shape.name,
-      chocolate: selection.chocolate.name,
-      relleno: selection.filling.name,
-      decoracion: selection.decoration.name,
-      colores: selection.colors.map((color) => color.name),
-      mensaje: selection.message,
-    },
-    unitPrice: unitPrice,
-    quantity: selection.box,
-    total: unitPrice * selection.box,
-  };
+    price: unitPrice * selection.box,
+    quantity: 1,
+    details: details,
+  });
 
-  try {
-    const cart = JSON.parse(localStorage.getItem('chocofeel-cart')) || [];
-    cart.push(item);
-    localStorage.setItem('chocofeel-cart', JSON.stringify(cart));
-    successMessage.textContent = '¡Listo! Agregamos tu caja al carrito.';
-  } catch (error) {
-    successMessage.textContent = 'No se pudo guardar en este navegador. Inténtalo de nuevo.';
-  }
+  successMessage.textContent = added
+    ? '¡Listo! Agregamos tu caja al carrito.'
+    : 'No se pudo guardar en este navegador. Inténtalo de nuevo.';
 });
 
 /* Estado inicial */

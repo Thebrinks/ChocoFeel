@@ -97,7 +97,7 @@ function createProductCard(product, extraClass = '') {
         </div>
         <div class="product__price flex">${createPrices(product)}</div>
 
-        <a href="#" class="action__btn cart__btn" aria-label="Agregar al carrito">
+        <a href="#" class="action__btn cart__btn" data-id="${product.id}" aria-label="Agregar al carrito">
           <i class="fi fi-rs-shopping-bag-add"></i>
         </a>
       </div>
@@ -229,6 +229,94 @@ tabs.forEach((tab) => {
     tab.classList.add('active-tab');
   });
 });
+
+/*=============== CARRITO (todas las páginas) ===============*/
+/* El carrito se guarda en el navegador (localStorage) como una lista de:
+   { key, name, image, price, quantity, details }
+    - key: identifica el artículo (el id del producto o "caja-" + fecha)
+    - price: precio de UNA unidad (un bombón o una caja completa)
+    - details: textos extra que se muestran en el carrito (opciones de la caja) */
+const CART_KEY = 'chocofeel-cart';
+
+function getCart() {
+  try {
+    const cart = JSON.parse(localStorage.getItem(CART_KEY));
+    /* Solo se aceptan artículos con precio y cantidad (descarta datos viejos) */
+    return Array.isArray(cart) ? cart.filter((item) => item.price && item.quantity) : [];
+  } catch (error) {
+    return [];
+  }
+}
+
+/* Guarda el carrito y actualiza el número del ícono. Devuelve false si falla */
+function saveCart(cart) {
+  try {
+    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    updateCartCount();
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+
+/* Si el artículo ya está en el carrito se suma la cantidad; si no, se agrega */
+function addToCart(item) {
+  const cart = getCart();
+  const existing = cart.find((cartItem) => cartItem.key === item.key);
+
+  if (existing) {
+    existing.quantity += item.quantity;
+  } else {
+    cart.push(item);
+  }
+  return saveCart(cart);
+}
+
+/* Número del ícono del carrito = total de unidades */
+function updateCartCount() {
+  const count = document.querySelector('.header__action-btn[href="cart.html"] .count');
+  count.textContent = getCart().reduce((total, item) => total + item.quantity, 0);
+}
+
+/* Mensaje corto que aparece abajo y se va solo después de 3 segundos */
+function showToast(text) {
+  let toast = document.querySelector('.toast');
+
+  if (!toast) {
+    toast = document.createElement('p');
+    toast.className = 'toast';
+    toast.setAttribute('role', 'status');
+    document.body.append(toast);
+  }
+
+  toast.textContent = text;
+  toast.classList.add('show-toast');
+  clearTimeout(toast.timer);
+  toast.timer = setTimeout(() => toast.classList.remove('show-toast'), 3000);
+}
+
+/* Botón de bolsa de las tarjetas de producto. Se escucha en "document"
+   porque las tarjetas se crean con JavaScript (también en la tienda) */
+document.addEventListener('click', (event) => {
+  const button = event.target.closest('.cart__btn[data-id]');
+  if (!button) return;
+
+  event.preventDefault();
+  const product = products.find((item) => item.id === button.dataset.id);
+
+  const added = addToCart({
+    key: product.id,
+    name: product.name,
+    image: product.image,
+    price: product.price,
+    quantity: 1,
+    details: [],
+  });
+
+  showToast(added ? `Agregaste ${product.name} al carrito` : 'No se pudo guardar el carrito en este navegador');
+});
+
+updateCartCount();
 
 /*=============== BUSCADOR DEL HEADER ===============*/
 /* Lleva a la tienda con lo escrito en la dirección: shop.html?q=arequipe

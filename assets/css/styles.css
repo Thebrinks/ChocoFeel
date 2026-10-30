@@ -1076,15 +1076,11 @@ input {
 }
 
 .customize__colors {
-    margin-block: 0.25rem 1.25rem;
+    margin-top: 0.25rem;
 }
 
 .customize__colors .customize__hint {
     margin-bottom: 0.75rem;
-}
-
-.customize__step .form__check {
-    margin-top: 1.25rem;
 }
 
 .customize__message {
@@ -1288,6 +1284,107 @@ input {
 }
 
 /*=============== SHOP ===============*/
+.shop__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.shop__title {
+    font-size: var(--h2-font-size);
+    color: var(--subtitle-color);
+}
+
+.shop__title span {
+    color: var(--first-color);
+}
+
+.shop__description {
+    margin-top: 0.5rem;
+}
+
+/* Enlace al armador */
+.shop__customize {
+    display: flex;
+    align-items: center;
+    column-gap: 0.625rem;
+    background-color: var(--container-color);
+    color: var(--title-color);
+    border: 1px solid var(--border-color-alt);
+    border-radius: 2.5rem;
+    padding: 0.75rem 1.25rem;
+    font-size: var(--small-font-size);
+    font-weight: var(--weight-600);
+    transition: all 0.3s var(--transition);
+}
+
+.shop__customize i {
+    display: flex;
+}
+
+.shop__customize:hover {
+    background-color: var(--first-color);
+    border-color: var(--first-color);
+    color: var(--body-color);
+}
+
+.shop__filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-block: 1.25rem;
+    border-block: 1px solid var(--border-color-alt);
+}
+
+.shop__moods,
+.shop__tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.shop__search {
+    position: relative;
+}
+
+.shop__search .form__input {
+    width: 260px;
+    padding-right: 2.5rem;
+}
+
+.shop__search i {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    display: flex;
+    color: var(--first-color);
+}
+
+.shop__sort {
+    background-color: var(--body-color);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.shop__count {
+    margin-block: 1.5rem;
+    font-size: var(--small-font-size);
+}
+
+.shop__empty {
+    text-align: center;
+    padding-block: 3rem;
+}
+
+.shop__empty p {
+    margin-bottom: 1.5rem;
+}
+
 
 /*=============== DETAILS ===============*/
 

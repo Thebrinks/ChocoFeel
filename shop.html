@@ -1,96 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <!--================= FLATICON =================-->
   <link 
-  rel='stylesheet' 
-  href='https://cdn-uicons.flaticon.com/4.0.0/uicons-regular-straight/css/uicons-regular-straight.css'>
-  
+    rel='stylesheet' 
+    href='https://cdn-uicons.flaticon.com/4.0.0/uicons-regular-straight/css/uicons-regular-straight.css'>
+  <link 
+    rel='stylesheet' 
+    href='https://cdn-uicons.flaticon.com/4.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
   <!--================= SWIPER CSS =================-->
   <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
   />
-
   <!--================= CSS =================-->
   <link rel="stylesheet" href="assets/css/styles.css">
-  <title>Document</title>
-</head> 
+  <link rel="icon" type="image/png" href="assets/img/marca/favicon-chocofeel-32pixeles.png">
+  <title>Tienda | ChocoFeel</title>
+</head>
 <body>
   <!--================= HEADER =================-->
   <header class="header">
-  <div class="header__top">
+    <div class="header__top">
       <div class="header__container container">
-      <div class="header__contact">
+        <div class="header__contact">
           <span>(+57) - 1234 - 5678</span>
           <span> Bogotá, Colombia</span>
-      </div>
-      <p class="header__alert-news">
+        </div>
+        <p class="header__alert-news">
           Nuevos productos - Precios accesibles
-      </p>
-      <a href="login-register.html" class="header__top-action">
+        </p>
+        <a href="login-register.html" class="header__top-action">
           Iniciar sesión / Registrarse
-      </a>
+        </a>
       </div>
-  </div>
-  <nav class="nav container">
+    </div>
+    <nav class="nav container">
       <a href="index.html" class="nav__logo">
-        <img src="assets/img/marca/logo-chocofeel-mejorado-sinfondo.webp" alt="" class="nav__logo-img">
+          <img src="assets/img/marca/logo-chocofeel-mejorado-sinfondo.webp" alt="" class="nav__logo-img">
       </a>
       <div class="nav__menu" id="nav-menu">
-      <ul class="nav__list">
-        <li class="nav__item">
-        <a href="index.html" class="nav__link">Inicio</a>
-        </li>
-        <li class="nav__item">
-        <a href="shop.html" class="nav__link active-link">Tienda</a>
-        </li>
-        <li class="nav__item">
-        <a href="customize.html" class="nav__link">Personaliza</a>
-        </li>
-        <li class="nav__item">
-        <a href="about.html" class="nav__link">Nosotros</a>
-        </li>
-        <li class="nav__item">
-        <a href="accounts.html" class="nav__link">Mi cuenta</a>
-        </li>
-      </ul>
-      <div class="header__search">
-        <input type="text" placeholder="Buscar chocolates..." class="form__input">
-        <button class="search__btn">
-        <img src="assets/img/icons/search.png" alt="">
-        </button>
-      </div>
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="index.html" class="nav__link">Inicio</a>
+          </li>
+          <li class="nav__item">
+            <a href="shop.html" class="nav__link active-link">Tienda</a>
+          </li>
+          <li class="nav__item">
+            <a href="customize.html" class="nav__link">Personaliza</a>
+          </li>
+          <li class="nav__item">
+            <a href="about.html" class="nav__link">Nosotros</a>
+          </li>
+          <li class="nav__item">
+            <a href="accounts.html" class="nav__link">Mi cuenta</a>
+          </li>
+        </ul>
+        <div class="header__search">
+          <input type="text" placeholder="Buscar chocolates..." class="form__input">
+          <button class="search__btn" aria-label="Buscar">
+            <img src="assets/img/icons/search.png" alt="">
+          </button>
+        </div>
       </div>
       <div class="header__user-actions">
-        <a href="wishlist.html" class="header__action-btn">
-        <img src="assets/img/icons/icon-heart.svg" alt="">
-        <span class="count">3</span>
-        </a>
-        <a href="cart.html" class="header__action-btn">
-        <img src="assets/img/icons/icon-cart.svg" alt="">
-        <span class="count">3</span>
-        </a>
+          <a href="wishlist.html" class="header__action-btn">
+            <img src="assets/img/icons/icon-heart.svg" alt="">
+            <span class="count">3</span>
+          </a>
+          <a href="cart.html" class="header__action-btn">
+            <img src="assets/img/icons/icon-cart.svg" alt="">
+            <span class="count">3</span>
+          </a>
       </div>
-  </nav>
+    </nav>
   </header>
   <!--================= MAIN =================-->
   <main class="main">
     <!--================= BREADCRUMB =================-->
     <section class="breadcrumb">
       <ul class="breadcrumb__list flex container">
-        <li><a href="index.html" class="breadcrumb__link">Home</a></li>
+        <li><a href="index.html" class="breadcrumb__link">Inicio</a></li>
         <li><span class="breadcrumb__link">></span></li>
-        <li><span class="breadcrumb__link">Shop</span></li>
+        <li><span class="breadcrumb__link">Tienda</span></li>
       </ul>
-    </section> 
-  
-    <!--================= PRODUCTS =================-->
-    <section class="products"></section> 
+    </section>
+    <!--================= SHOP =================-->
+    <section class="shop section--lg container">
+      <div class="shop__header">
+        <div>
+          <h1 class="shop__title">Nuestra <span>tienda</span></h1>
+          <p class="shop__description">¿Cómo te sientes hoy? Filtra los chocolates por emoción.</p>
+        </div>
+        <a href="customize.html" class="shop__customize">
+          <i class="fi fi-rs-paint-brush"></i>
+          ¿Prefieres crear el tuyo? Personaliza tu bombón
+        </a>
+      </div>
 
+      <!-- Filtros: las emociones las dibuja shop.js a partir de "moods" (products.js) -->
+      <form class="shop__filters" id="shop-filters">
+        <div class="shop__moods" id="shop-moods" role="radiogroup" aria-label="Filtrar por emoción"></div>
+        <div class="shop__tools">
+          <div class="shop__search">
+            <input type="search" name="q" id="shop-search" class="form__input" placeholder="Buscar por nombre o sabor..." aria-label="Buscar chocolates">
+            <i class="fi fi-rs-search"></i>
+          </div>
+          <select name="sort" id="shop-sort" class="form__input shop__sort" aria-label="Ordenar productos">
+            <option value="default">Ordenar: destacados</option>
+            <option value="price-asc">Precio: menor a mayor</option>
+            <option value="price-desc">Precio: mayor a menor</option>
+            <option value="name">Nombre: A - Z</option>
+          </select>
+        </div>
+      </form>
+
+      <p class="shop__count" id="shop-count" role="status"></p>
+      <div class="products__container grid" id="shop-products"></div>
+
+      <div class="shop__empty" id="shop-empty" hidden>
+        <p>No encontramos chocolates con esos filtros.</p>
+        <button type="button" class="btn" id="shop-clear">Ver todos los chocolates</button>
+      </div>
+    </section>
     <!--================= NEWSLETTER =================-->
     <section class="newsletter section home__newsletter">
       <div class="newsletter__container container grid">
@@ -110,9 +145,8 @@
           <button type="submit" class="newsletter__btn">Únete a ChocoFeel</button>
         </form>
       </div>
-    </section> 
+    </section>
   </main>
-
   <!--================= FOOTER =================-->
   <footer class="footer container">
     <div class="footer__container grid">
@@ -189,12 +223,9 @@
       </p>
     </div>
   </footer>
-  <!--================= FLATICON =================-->
-
-  <!--================= SWIPER JS =================-->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-  <!--================= MAIN JS =================-->
+  <!--================= JS =================-->
   <script src="assets/js/products.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/shop.js"></script>
 </body>
 </html>

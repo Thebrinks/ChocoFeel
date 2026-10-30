@@ -90,9 +90,6 @@ document.getElementById('box-options').innerHTML = customOptions.boxes
   .map((box) => createOption('box', { id: box, name: `${box} bombones` }, 'radio', box === 6))
   .join('');
 
-document.getElementById('gold-label').innerHTML =
-  customOptions.gold.name + ' ' + extraText(customOptions.gold.extra);
-
 /*=============== LEER LO QUE ELIGIÓ EL CLIENTE ===============*/
 function getSelection() {
   const data = new FormData(form);
@@ -104,7 +101,6 @@ function getSelection() {
     filling: findOption(customOptions.fillings, data.get('filling')),
     decoration: findOption(customOptions.decorations, data.get('decoration')),
     colors: data.getAll('colors').map((id) => findOption(customOptions.colors, id)),
-    gold: data.get('gold') === 'on',
     box: Number(data.get('box')),
     message: data.get('message').trim(),
   };
@@ -116,8 +112,7 @@ function getUnitPrice(selection) {
     + selection.shape.extra
     + selection.chocolate.extra
     + selection.filling.extra
-    + selection.decoration.extra
-    + (selection.gold ? customOptions.gold.extra : 0);
+    + selection.decoration.extra;
 }
 
 /* Cuántos colores se pueden elegir según la decoración */
@@ -176,7 +171,6 @@ function updateSummary() {
     ['Relleno', selection.filling.name],
     ['Decoración', selection.decoration.name],
     ['Colores', colorNames || 'Ninguno'],
-    ['Oro comestible', selection.gold ? 'Sí' : 'No'],
   ];
 
   document.getElementById('summary-details').innerHTML = rows
@@ -261,7 +255,6 @@ form.addEventListener('submit', (event) => {
       relleno: selection.filling.name,
       decoracion: selection.decoration.name,
       colores: selection.colors.map((color) => color.name),
-      oro: selection.gold,
       mensaje: selection.message,
     },
     unitPrice: unitPrice,

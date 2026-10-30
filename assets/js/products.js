@@ -4,7 +4,8 @@
     - price / oldPrice: números sin puntos ni "COP" (el formato se añade solo)
     - oldPrice: null si no tiene precio anterior
     - offer: true muestra "Oferta" y el % de descuento (se calcula solo)
-   - badges: etiquetas; su color se define en BADGE_COLORS */
+   - badges: etiquetas; su color se define en BADGE_COLORS
+   - moods: emociones del producto (ids de "moods", al final del archivo) */
 const products = [
     {
         id: 'maracuya',
@@ -13,6 +14,7 @@ const products = [
         price: 4000,
         oldPrice: 5500,
         badges: ['Delicioso', 'Favorito'],
+        moods: ['alegria'],
     },
     {
         id: 'frutos-rojos',
@@ -21,6 +23,7 @@ const products = [
         price: 5000,
         oldPrice: 7000,
         badges: ['Favorito', 'Recomendado'],
+        moods: ['amor'],
     },
     {
         id: 'frutos-rojos-con-limon',
@@ -29,6 +32,7 @@ const products = [
         price: 4000,
         oldPrice: 5000,
         badges: ['Nuevo', 'Exclusivo'],
+        moods: ['amor', 'energia'],
     },
     {
         id: 'arequipe-con-coco',
@@ -37,6 +41,7 @@ const products = [
         price: 5500,
         oldPrice: 6000,
         badges: ['Premium', 'Delicioso'],
+        moods: ['calma'],
     },
     {
         id: 'espiral',
@@ -46,6 +51,7 @@ const products = [
         oldPrice: 6000,
         offer: true,
         badges: [],
+        moods: ['alegria'],
     },
     {
         id: 'arequipe',
@@ -55,6 +61,7 @@ const products = [
         oldPrice: 6500,
         offer: true,
         badges: ['Nuevo'],
+        moods: ['calma', 'nostalgia'],
     },
     {
         id: 'corazon',
@@ -64,6 +71,7 @@ const products = [
         oldPrice: 5000,
         offer: true,
         badges: [],
+        moods: ['amor'],
     },
     {
         id: 'mani-con-arequipe',
@@ -72,6 +80,7 @@ const products = [
         price: 7000,
         oldPrice: 7500,
         badges: ['Nuevo', 'Delicioso'],
+        moods: ['energia', 'calma'],
     },
     {
         id: 'brownie',
@@ -80,6 +89,7 @@ const products = [
         price: 6700,
         oldPrice: 7000,
         badges: ['Delicioso', 'Recomendado'],
+        moods: ['nostalgia'],
     },
     {
         id: 'blanco',
@@ -88,6 +98,7 @@ const products = [
         price: 5000,
         oldPrice: 5500,
         badges: ['Nuevo'],
+        moods: ['calma'],
     },
     {
         id: 'flan',
@@ -96,6 +107,7 @@ const products = [
         price: 7700,
         oldPrice: 7500,
         badges: ['Delicioso', 'Exclusivo'],
+        moods: ['nostalgia'],
     },
     {
         id: 'vino',
@@ -104,6 +116,7 @@ const products = [
         price: 7700,
         oldPrice: 7500,
         badges: ['Premium', 'Delicioso', 'Exclusivo'],
+        moods: ['amor'],
     },
     {
         id: 'manzana',
@@ -112,6 +125,7 @@ const products = [
         price: 6000,
         oldPrice: 6500,
         badges: ['Recomendado'],
+        moods: ['nostalgia'],
     },
     {
         id: 'zafiro-de-frutos-rojos',
@@ -120,6 +134,7 @@ const products = [
         price: 7200,
         oldPrice: 7500,
         badges: ['Premium', 'Favorito'],
+        moods: ['amor'],
     },
     {
         id: 'pina',
@@ -128,6 +143,7 @@ const products = [
         price: 6000,
         oldPrice: 6500,
         badges: ['Delicioso', 'Nuevo'],
+        moods: ['alegria'],
     },
     {
         id: 'prisma',
@@ -137,6 +153,7 @@ const products = [
         oldPrice: 6000,
         offer: true,
         badges: ['Nuevo'],
+        moods: ['energia'],
     },
     {
         id: 'concha-marina',
@@ -145,6 +162,7 @@ const products = [
         price: 5500,
         oldPrice: null,
         badges: ['Nuevo'],
+        moods: ['calma'],
     },
     {
         id: 'vortice-suave',
@@ -153,6 +171,7 @@ const products = [
         price: 4200,
         oldPrice: null,
         badges: ['Nuevo'],
+        moods: ['calma'],
     },
     {
         id: 'cacao-nativo',
@@ -161,6 +180,7 @@ const products = [
         price: 4500,
         oldPrice: 5000,
         badges: ['Nuevo'],
+        moods: ['energia'],
     },
     {
         id: 'corrientes-suaves',
@@ -169,6 +189,7 @@ const products = [
         price: 6000,
         oldPrice: null,
         badges: ['Nuevo', 'Recomendado'],
+        moods: ['calma'],
     },
     {
         id: 'remolino-sublime',
@@ -177,6 +198,7 @@ const products = [
         price: 5400,
         oldPrice: 5900,
         badges: ['Nuevo'],
+        moods: ['alegria'],
     },
     {
         id: 'catedral-del-cacao',
@@ -185,6 +207,7 @@ const products = [
         price: 6500,
         oldPrice: 7500,
         badges: ['Premium', 'Nuevo', 'Recomendado'],
+        moods: ['nostalgia'],
     },
 ];
 
@@ -317,7 +340,6 @@ const customOptions = {
         { id: 'verde', name: 'Verde', code: '#3f9c5a' },
         { id: 'dorado', name: 'Dorado', code: '#c9a227' },
     ],
-    gold: { name: 'Acabado de oro comestible', extra: 1500 },
     boxes: [4, 6, 9, 12],
 };
 

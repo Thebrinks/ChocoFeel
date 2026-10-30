@@ -46,6 +46,13 @@ function createPrices(product) {
     ${oldPrice}`;
 }
 
+/* Nombres de las emociones de un producto: "Amor · Energía" */
+function getMoodNames(product) {
+  return product.moods
+    .map((id) => moods.find((mood) => mood.id === id).name)
+    .join(' · ');
+}
+
 /* Convierte una lista de ids en la lista de productos completos */
 function findProducts(productIds) {
   return productIds.map((id) => products.find((product) => product.id === id));
@@ -77,7 +84,7 @@ function createProductCard(product, extraClass = '') {
       </div>
 
       <div class="product__content">
-        <span class="product__category">Chocolates</span>
+        <span class="product__category">${getMoodNames(product)}</span>
         <a href="details.html">
           <h3 class="product__title">${product.name}</h3>
         </a>
@@ -221,6 +228,22 @@ tabs.forEach((tab) => {
 
     tab.classList.add('active-tab');
   });
+});
+
+/*=============== BUSCADOR DEL HEADER ===============*/
+/* Lleva a la tienda con lo escrito en la dirección: shop.html?q=arequipe
+   (shop.js lee ese "q" y filtra los productos) */
+const headerSearch = document.querySelector('.header__search .form__input');
+const headerSearchBtn = document.querySelector('.header__search .search__btn');
+
+function goToSearch() {
+  const text = headerSearch.value.trim();
+  window.location.href = text ? `shop.html?q=${encodeURIComponent(text)}` : 'shop.html';
+}
+
+headerSearchBtn.addEventListener('click', goToSearch);
+headerSearch.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') goToSearch();
 });
 
 /*=============== NEWSLETTER ===============*/

@@ -1150,7 +1150,7 @@ input {
 
 .customize__details dd {
     text-align: right;
-}
+} 
 
 .customize__total {
     border-top: 1px solid var(--border-color-alt);
@@ -1195,12 +1195,6 @@ input {
     border: 1px solid var(--border-color-alt);
     border-radius: 1.25rem;
     padding: 2rem;
-}
-
-.login-register__note {
-    margin-top: 2rem;
-    font-size: var(--small-font-size);
-    color: var(--text-color-light);
 }
 
 /*=============== ABOUT ===============*/

@@ -6,7 +6,7 @@
 const CHOCOLATE_COLORS = {
   leche: '#8a5a3b',
   oscuro: '#4a2c1d',
-  blanco: '#f3e6cf',
+  blanco: '#f3e6cf', 
 };
 
 const form = document.getElementById('customize-form');

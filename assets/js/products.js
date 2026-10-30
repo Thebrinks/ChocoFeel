@@ -348,7 +348,7 @@ const customOptions = {
 
 /*=============== EMOCIONES ===============*/
 /* Cada emoción sugiere rellenos y colores (por su id en customOptions).
-   Es una propuesta de marca: el cliente puede cambiar todo después */
+    Es una propuesta de marca: el cliente puede cambiar todo después */
 const moods = [
     {
         id: 'alegria',
@@ -369,7 +369,7 @@ const moods = [
         colors: ['rojo', 'rosado'],
     },
     {
-        id: 'nostalgia',
+        id: 'nostalgia', 
         name: 'Nostalgia',
         fillings: ['flan', 'brownie', 'manzana'],
         colors: ['dorado', 'naranja'],

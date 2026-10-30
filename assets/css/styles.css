@@ -1380,6 +1380,111 @@ input {
 
 
 /*=============== DETAILS ===============*/
+.details__container {
+    grid-template-columns: 5.5fr 6.5fr;
+    align-items: center;
+    column-gap: 4rem;
+}
+
+.details__container[hidden] {
+    display: none;
+}
+
+.details__img {
+    width: 100%;
+    aspect-ratio: 5 / 4;
+    object-fit: cover;
+    border-radius: 1.5rem;
+    border: 1px solid var(--border-color-alt);
+}
+
+/* Las etiquetas aquí no van encima de la imagen */
+.details__badges {
+    position: static;
+    margin-bottom: 1rem;
+}
+
+.details__title {
+    font-size: var(--h2-font-size);
+    color: var(--subtitle-color);
+    line-height: 1.2;
+}
+
+.details__moods {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-block: 1rem 1.5rem;
+}
+
+.details__mood {
+    background-color: var(--second-color);
+    color: var(--title-color);
+    font-size: var(--small-font-size);
+    font-weight: var(--weight-600);
+    padding: 0.25rem 0.875rem;
+    border-radius: 2.5rem;
+    transition: all 0.2s var(--transition);
+}
+
+.details__mood:hover {
+    background-color: var(--first-color);
+    color: var(--body-color);
+}
+
+.details__price .new__price {
+    font-size: var(--h4-font-size);
+}
+
+.details__price .old__price {
+    font-size: var(--normal-font-size);
+}
+
+.details__description {
+    margin-block: 1.25rem;
+}
+
+.details__list {
+    display: grid;
+    row-gap: 0.625rem;
+    padding-block: 1.25rem;
+    border-block: 1px solid var(--border-color-alt);
+    font-size: var(--small-font-size);
+}
+
+.details__list li {
+    display: flex;
+    align-items: center;
+    column-gap: 0.625rem;
+}
+
+.details__list i {
+    display: flex;
+    color: var(--first-color);
+}
+
+.details__action {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-block: 1.5rem;
+}
+
+.details__quantity {
+    height: 49px;
+    padding-inline: 0.5rem;
+}
+
+.details__wish {
+    display: block;
+    flex-shrink: 0;
+}
+
+.details__customize {
+    display: inline-flex;
+}
+
 
 /*=============== DETAILS INFO & REVIEWS ===============*/
 

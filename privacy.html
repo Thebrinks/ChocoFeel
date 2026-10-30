@@ -35,9 +35,14 @@
     </div>
     <nav class="nav container">
       <a href="index.html" class="nav__logo">
-          <img src="assets/img/marca/logo-chocofeel-mejorado-sinfondo.webp" alt="" class="nav__logo-img">
+          <img src="assets/img/marca/logo-chocofeel-mejorado-sinfondo.webp" alt="ChocoFeel - Inicio" class="nav__logo-img">
       </a>
       <div class="nav__menu" id="nav-menu">
+        <button type="button" class="nav__close" id="nav-close" aria-label="Cerrar menú">
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
         <ul class="nav__list">
           <li class="nav__item">
             <a href="index.html" class="nav__link">Inicio</a>
@@ -63,14 +68,17 @@
         </div>
       </div>
       <div class="header__user-actions">
-          <a href="wishlist.html" class="header__action-btn">
+          <a href="wishlist.html" class="header__action-btn" aria-label="Favoritos">
             <img src="assets/img/icons/icon-heart.svg" alt="">
             <span class="count" hidden>0</span>
           </a>
-          <a href="cart.html" class="header__action-btn">
+          <a href="cart.html" class="header__action-btn" aria-label="Carrito">
             <img src="assets/img/icons/icon-cart.svg" alt="">
             <span class="count" hidden>0</span>
           </a>
+          <button type="button" class="nav__toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+            <img src="assets/img/icons/menu-burger.svg" alt="">
+          </button>
       </div>
     </nav>
   </header>

@@ -13,6 +13,28 @@
    una const no se puede usar antes de la línea donde se crea */
 const CART_KEY = 'chocofeel-cart';
 const WISHLIST_KEY = 'chocofeel-wishlist';
+const USER_KEY = 'chocofeel-user';
+const ORDERS_KEY = 'chocofeel-orders';
+
+/* Lee una lista o un objeto guardado; si no hay nada (o está dañado) devuelve fallback */
+function readStorage(key, fallback) {
+  try {
+    const value = JSON.parse(localStorage.getItem(key));
+    return value === null ? fallback : value;
+  } catch (error) {
+    return fallback;
+  }
+}
+
+/* Guarda un valor; devuelve false si el navegador no lo permite */
+function writeStorage(key, value) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
 
 /*=============== PRODUCTS ===============*/
 /* Evita que un texto escrito por el cliente (por ejemplo el mensaje de la
@@ -393,6 +415,41 @@ document.addEventListener('click', (event) => {
 });
 
 updateWishlistCount();
+
+/*=============== SESIÓN (todas las páginas) ===============*/
+/* No hay servidor: "iniciar sesión" guarda en el navegador el nombre y los
+   datos del cliente (nunca la contraseña). Sirve para mostrar "Mi cuenta",
+   los pedidos y llenar solo los datos al finalizar la compra */
+function getUser() {
+  return readStorage(USER_KEY, null);
+}
+
+function saveUser(user) {
+  return writeStorage(USER_KEY, user);
+}
+
+function logout() {
+  try {
+    localStorage.removeItem(USER_KEY);
+  } catch (error) {
+    /* Si el navegador no deja borrar, no hay sesión que cerrar */
+  }
+}
+
+/* Pedidos confirmados en checkout.html (el más reciente primero) */
+function getOrders() {
+  const orders = readStorage(ORDERS_KEY, []);
+  return Array.isArray(orders) ? orders : [];
+}
+
+/* Con sesión iniciada, el enlace de arriba saluda y lleva a "Mi cuenta" */
+const topAction = document.querySelector('.header__top-action');
+const currentUser = getUser();
+
+if (topAction && currentUser) {
+  topAction.textContent = `Hola, ${currentUser.name.split(' ')[0]} · Mi cuenta`;
+  topAction.href = 'accounts.html';
+}
 
 /*=============== BUSCADOR DEL HEADER ===============*/
 /* Lleva a la tienda con lo escrito en la dirección: shop.html?q=arequipe

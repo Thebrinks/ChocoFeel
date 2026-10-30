@@ -1,6 +1,6 @@
 /*=============== FINALIZAR COMPRA ===============*/
 /* Solo se usa en checkout.html. Necesita products.js (SHIPPING_COST)
-   y main.js (getCart, saveCart, formatPrice y escapeHTML), cargados antes */
+   y main.js (carrito, sesión, formatPrice y escapeHTML), cargados antes */
 
 const checkoutForm = document.getElementById('checkout-form');
 const checkoutError = document.getElementById('checkout-error');
@@ -61,7 +61,20 @@ checkoutForm.addEventListener('submit', (event) => {
   document.getElementById('checkout-done-title').textContent = `¡Gracias por tu pedido, ${firstName}!`;
   document.getElementById('checkout-done-text').textContent =
     `Tu número de pedido es ${orderNumber}. Pago elegido: ${fields.payment.value}. ` +
-    `Te escribiremos a ${fields.email.value} para coordinar la entrega.`;
+    `Te escribiremos a ${fields.email.value} para coordinar la entrega.` +
+    (getUser() ? ' Puedes verlo en Mi cuenta.' : '');
+
+  /* El pedido se guarda para verlo en "Mi cuenta" (el más reciente primero) */
+  const cart = getCart();
+  const order = {
+    number: orderNumber,
+    date: new Date().toISOString(),
+    items: cart.map((item) => ({ name: item.name, quantity: item.quantity })),
+    total: cart.reduce((total, item) => total + item.price * item.quantity, 0) + SHIPPING_COST,
+    payment: fields.payment.value,
+    email: fields.email.value.trim().toLowerCase(),
+  };
+  writeStorage(ORDERS_KEY, [order, ...getOrders()]);
 
   saveCart([]);
   document.getElementById('checkout-full').hidden = true;
@@ -69,4 +82,18 @@ checkoutForm.addEventListener('submit', (event) => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
+/* Con sesión iniciada, los datos guardados en "Mi cuenta" se llenan solos */
+function fillFromUser() {
+  const user = getUser();
+  if (!user) return;
+
+  const fields = checkoutForm.elements;
+  fields.fullname.value = user.name;
+  fields.email.value = user.email;
+  fields.phone.value = user.phone || '';
+  fields.address.value = user.address || '';
+  fields.district.value = user.district || '';
+}
+
+fillFromUser();
 renderOrderSummary();

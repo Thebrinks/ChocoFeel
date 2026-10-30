@@ -374,7 +374,12 @@ input {
     border: 1px solid var(--border-color);
     padding: 0.625rem 0.625rem 1.25rem;
     border-radius: 1.25rem;
-    max-height: 350px;
+}
+
+/* Todas las tarjetas del carrusel miden lo mismo que la más alta
+   (un nombre largo ocupa dos líneas y hacía crecer solo esa tarjeta) */
+.features__container .swiper-slide {
+    height: auto;
 }
 
 .feature__img {
@@ -2420,13 +2425,16 @@ input {
         margin-block: 0.5rem 0.375rem;
     }
 
-    /* Las etiquetas bajan de línea antes de llegar a los botones de la derecha */
+    /* En celular las etiquetas van debajo de la imagen para no tapar el chocolate */
     .product__badge {
-        left: 1rem;
-        right: 3.25rem;
-        top: 1rem;
+        position: static;
         flex-wrap: wrap;
         gap: 4px;
+        margin-top: 0.5rem;
+    }
+
+    .badge {
+        font-size: var(--tiny-font-size);
     }
 
     .product__price {
@@ -2452,15 +2460,23 @@ input {
     }
 
     @media (hover: none) {
+        /* Botones más pequeños y semitransparentes para tapar menos la imagen */
         .product__actions {
-            top: 1rem;
-            right: 1rem;
+            top: 0.875rem;
+            right: 0.875rem;
+            row-gap: 0.375rem;
         }
 
         .product__actions .action__btn {
-            width: 34px;
-            height: 34px;
-            line-height: 36px;
+            width: 30px;
+            height: 30px;
+            line-height: 32px;
+            font-size: var(--smaller-font-size);
+        }
+
+        /* El corazón de un favorito conserva su fondo café */
+        .product__actions .action__btn:not(.is-wished) {
+            background-color: #f8efe4cc;
         }
     }
 
@@ -2487,8 +2503,16 @@ input {
         border-right: 1px solid var(--border-color-alt);
     }
 
+    /* Conócenos y Mi cuenta quedan lado a lado; los datos y los pagos
+       (primer y último bloque) ocupan todo el ancho */
     .footer__container {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 1rem;
+    }
+
+    .footer__content:first-child,
+    .footer__content:last-child {
+        grid-column: 1 / -1;
     }
 
     .footer__bottom {

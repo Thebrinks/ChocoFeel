@@ -1621,6 +1621,70 @@ input {
 
 /*=============== CART OTHERS ===============*/
 
+/*=============== CHECKOUT ===============*/
+.checkout__row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1rem;
+}
+
+.checkout__form input[readonly] {
+    background-color: var(--container-color);
+}
+
+.checkout__items {
+    border-bottom: 1px solid var(--border-color-alt);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.checkout__item {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 1rem;
+    font-size: var(--small-font-size);
+    margin-bottom: 0.5rem;
+}
+
+.checkout__item span:last-child {
+    white-space: nowrap;
+    color: var(--title-color);
+    font-weight: var(--weight-600);
+}
+
+.cart__summary .form__error {
+    display: block;
+    margin-top: 1rem;
+}
+
+.cart__summary .form__error:empty {
+    display: none;
+}
+
+.checkout__done {
+    text-align: center;
+    padding-block: 3rem;
+}
+
+.checkout__done-title {
+    color: var(--title-color);
+    font-size: var(--h3-font-size);
+    margin-bottom: 1rem;
+}
+
+.checkout__done-note {
+    font-size: var(--small-font-size);
+    color: var(--text-color-light);
+    margin-block: 0.5rem 2rem;
+}
+
 /*=============== WISHLIST ===============*/
+/* Corazón de un producto que ya está en favoritos */
+.action__btn.is-wished {
+    background-color: var(--first-color);
+    border-color: var(--first-color);
+    color: var(--body-color);
+}
+
 
 /*=============== SHOWCASE ===============*/

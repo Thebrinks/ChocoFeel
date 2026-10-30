@@ -1,16 +1,8 @@
 /*=============== PÁGINA DEL CARRITO ===============*/
 /* Solo se usa en cart.html. Necesita products.js y main.js
-   (getCart, saveCart y formatPrice), cargados antes */
+   (getCart, saveCart, formatPrice y escapeHTML), cargados antes */
 
 const cartItems = document.getElementById('cart-items');
-
-/* Evita que un texto escrito por el cliente (el mensaje de la tarjeta)
-   se interprete como HTML al ponerlo con innerHTML */
-function escapeHTML(text) {
-  const div = document.createElement('div');
-  div.textContent = text;
-  return div.innerHTML;
-}
 
 /* HTML de una fila del carrito */
 function createCartRow(item) {
@@ -62,7 +54,9 @@ function renderCart() {
 
   document.getElementById('cart-count').textContent = units;
   document.getElementById('cart-subtotal').textContent = formatPrice(subtotal);
-  document.getElementById('cart-total').textContent = formatPrice(subtotal);
+  document.getElementById('cart-shipping').textContent =
+    SHIPPING_COST === 0 ? 'Gratis' : formatPrice(SHIPPING_COST);
+  document.getElementById('cart-total').textContent = formatPrice(subtotal + SHIPPING_COST);
 }
 
 /* Botones +, - y eliminar (un solo listener para toda la tabla) */

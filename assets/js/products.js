@@ -294,6 +294,9 @@ const showcase = {
     - productId: en las formas, el producto del que se toma la imagen */
 const BASE_PRICE = 4000;
 
+/* Costo del envío en Bogotá (0 = gratis). Se usa en el carrito y al finalizar la compra */
+const SHIPPING_COST = 0;
+
 const customOptions = {
     shapes: [
         { id: 'corazon', name: 'Corazón', extra: 0, productId: 'corazon' },

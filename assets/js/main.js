@@ -8,7 +8,21 @@
 
 /*=============== IMAGE GALLERY ===============*/
 
+/*=============== DATOS GUARDADOS EN EL NAVEGADOR ===============*/
+/* Van al principio porque las tarjetas (más abajo) ya los necesitan:
+   una const no se puede usar antes de la línea donde se crea */
+const CART_KEY = 'chocofeel-cart';
+const WISHLIST_KEY = 'chocofeel-wishlist';
+
 /*=============== PRODUCTS ===============*/
+/* Evita que un texto escrito por el cliente (por ejemplo el mensaje de la
+   tarjeta) se interprete como HTML al ponerlo con innerHTML */
+function escapeHTML(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
 /* Convierte un número en precio: 5000 -> "$5.000 COP" */
 function formatPrice(value) {
   return '$' + value.toLocaleString('es-CO', { useGrouping: 'always' }) + ' COP';
@@ -72,7 +86,7 @@ function createProductCard(product, extraClass = '') {
           <a href="#" class="action__btn" aria-label="Vista rápida">
             <i class="fi fi-rs-eye"></i>
           </a>
-          <a href="#" class="action__btn" aria-label="Agregar a favoritos">
+          <a href="#" class="action__btn wish__btn ${isWished(product.id) ? 'is-wished' : ''}" data-wish="${product.id}" aria-label="${isWished(product.id) ? 'Quitar de favoritos' : 'Agregar a favoritos'}">
             <i class="fi fi-rs-heart"></i>
           </a>
           <a href="#" class="action__btn" aria-label="Comparar">
@@ -236,8 +250,6 @@ tabs.forEach((tab) => {
     - key: identifica el artículo (el id del producto o "caja-" + fecha)
     - price: precio de UNA unidad (un bombón o una caja completa)
     - details: textos extra que se muestran en el carrito (opciones de la caja) */
-const CART_KEY = 'chocofeel-cart';
-
 function getCart() {
   try {
     const cart = JSON.parse(localStorage.getItem(CART_KEY));
@@ -274,8 +286,15 @@ function addToCart(item) {
 
 /* Número del ícono del carrito = total de unidades */
 function updateCartCount() {
-  const count = document.querySelector('.header__action-btn[href="cart.html"] .count');
-  count.textContent = getCart().reduce((total, item) => total + item.quantity, 0);
+  const units = getCart().reduce((total, item) => total + item.quantity, 0);
+  setHeaderCount('cart.html', units);
+}
+
+/* Pone un número en el ícono del header (carrito o favoritos); si es 0 lo oculta */
+function setHeaderCount(href, number) {
+  const count = document.querySelector(`.header__action-btn[href="${href}"] .count`);
+  count.textContent = number;
+  count.hidden = number === 0;
 }
 
 /* Mensaje corto que aparece abajo y se va solo después de 3 segundos */
@@ -317,6 +336,63 @@ document.addEventListener('click', (event) => {
 });
 
 updateCartCount();
+
+/*=============== FAVORITOS (todas las páginas) ===============*/
+/* Se guardan en el navegador como una lista de ids de productos (WISHLIST_KEY) */
+function getWishlist() {
+  try {
+    const list = JSON.parse(localStorage.getItem(WISHLIST_KEY));
+    return Array.isArray(list) ? list : [];
+  } catch (error) {
+    return [];
+  }
+}
+
+function isWished(productId) {
+  return getWishlist().includes(productId);
+}
+
+/* Si el producto está en favoritos lo quita; si no, lo agrega.
+   Devuelve true si quedó en favoritos */
+function toggleWishlist(productId) {
+  let list = getWishlist();
+  const wished = list.includes(productId);
+
+  list = wished ? list.filter((id) => id !== productId) : [...list, productId];
+
+  try {
+    localStorage.setItem(WISHLIST_KEY, JSON.stringify(list));
+  } catch (error) {
+    return wished;
+  }
+  updateWishlistCount();
+  return !wished;
+}
+
+function updateWishlistCount() {
+  setHeaderCount('wishlist.html', getWishlist().length);
+}
+
+/* Botón de corazón de las tarjetas */
+document.addEventListener('click', (event) => {
+  const button = event.target.closest('.wish__btn[data-wish]');
+  if (!button) return;
+
+  event.preventDefault();
+  const productId = button.dataset.wish;
+  const product = products.find((item) => item.id === productId);
+  const wished = toggleWishlist(productId);
+
+  /* Un producto puede aparecer varias veces en la página (pestañas, carrusel) */
+  document.querySelectorAll(`.wish__btn[data-wish="${productId}"]`).forEach((btn) => {
+    btn.classList.toggle('is-wished', wished);
+    btn.setAttribute('aria-label', wished ? 'Quitar de favoritos' : 'Agregar a favoritos');
+  });
+
+  showToast(wished ? `Agregaste ${product.name} a favoritos` : `Quitaste ${product.name} de favoritos`);
+});
+
+updateWishlistCount();
 
 /*=============== BUSCADOR DEL HEADER ===============*/
 /* Lleva a la tienda con lo escrito en la dirección: shop.html?q=arequipe

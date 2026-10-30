@@ -69,11 +69,11 @@
       <div class="header__user-actions">
           <a href="wishlist.html" class="header__action-btn">
             <img src="assets/img/icons/icon-heart.svg" alt="">
-            <span class="count">3</span>
+            <span class="count" hidden>0</span>
           </a>
           <a href="cart.html" class="header__action-btn">
             <img src="assets/img/icons/icon-cart.svg" alt="">
-            <span class="count">3</span>
+            <span class="count" hidden>0</span>
           </a>
       </div>
     </nav>
@@ -119,7 +119,7 @@
           <h3 class="cart__summary-title">Resumen del pedido</h3>
           <p>Productos <span id="cart-count"></span></p>
           <p>Subtotal <span id="cart-subtotal"></span></p>
-          <p>Envío <span>Se calcula al finalizar</span></p>
+          <p>Envío <span id="cart-shipping"></span></p>
           <p class="cart__total">Total <span id="cart-total"></span></p>
           <a href="checkout.html" class="btn cart__btn-checkout">Finalizar compra</a>
         </aside>

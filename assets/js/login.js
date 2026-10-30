@@ -12,7 +12,7 @@ function showError(form, text) {
 function showSuccess(form, text) {
   const message = document.createElement('p');
   message.className = 'form__success';
-  message.textContent = text;
+  message.textContent = text; 
   form.replaceWith(message);
 }
 

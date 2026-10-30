@@ -2086,6 +2086,26 @@ input {
     margin: 0 auto 2rem;
 }
 
+/*=============== OPINIÓN (formulario de Google) ===============*/
+.feedback__box {
+    justify-content: space-between;
+}
+
+.info__box .feedback__title {
+    font-family: var(--body-font);
+    font-size: var(--large-font-size);
+    font-weight: var(--weight-700);
+    color: var(--title-color);
+    margin-bottom: 0.25rem;
+}
+
+/* En la confirmación del pedido la caja va centrada bajo el número de pedido */
+.checkout__done .feedback__box {
+    justify-content: center;
+    max-width: 640px;
+    margin: 0 auto 2rem;
+}
+
 /*=============== CHECKOUT ===============*/
 .checkout__row {
     display: grid;

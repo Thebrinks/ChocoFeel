@@ -100,19 +100,16 @@ function createProductCard(product, extraClass = '') {
   return `
     <div class="product__item ${extraClass}">
       <div class="product__banner">
-        <a href="details.html" class="product__images">
+        <a href="details.html?id=${product.id}" class="product__images">
           <img src="${product.image}" loading="lazy" alt="${product.name}" class="product__img">
         </a>
 
         <div class="product__actions">
-          <a href="#" class="action__btn" aria-label="Vista rápida">
+          <a href="details.html?id=${product.id}" class="action__btn" aria-label="Ver detalle">
             <i class="fi fi-rs-eye"></i>
           </a>
           <a href="#" class="action__btn wish__btn ${isWished(product.id) ? 'is-wished' : ''}" data-wish="${product.id}" aria-label="${isWished(product.id) ? 'Quitar de favoritos' : 'Agregar a favoritos'}">
             <i class="fi fi-rs-heart"></i>
-          </a>
-          <a href="#" class="action__btn" aria-label="Comparar">
-            <i class="fi fi-rs-shuffle"></i>
           </a>
         </div>
 
@@ -121,7 +118,7 @@ function createProductCard(product, extraClass = '') {
 
       <div class="product__content">
         <span class="product__category">${getMoodNames(product)}</span>
-        <a href="details.html">
+        <a href="details.html?id=${product.id}">
           <h3 class="product__title">${product.name}</h3>
         </a>
         <div class="product__rating">
@@ -153,11 +150,11 @@ function renderProducts(containerSelector, productIds, extraClass = '') {
 function createShowcaseItem(product) {
   return `
     <div class="showcase__item">
-      <a href="details.html" class="showcase__img-box">
+      <a href="details.html?id=${product.id}" class="showcase__img-box">
         <img src="${product.image}" loading="lazy" alt="${product.name}" class="showcase__img">
       </a>
       <div class="showcase__content">
-        <a href="details.html">
+        <a href="details.html?id=${product.id}">
           <h4 class="showcase__title">${product.name}</h4>
         </a>
         <div class="showcase__price flex">${createPrices(product)}</div>

@@ -131,19 +131,24 @@ function renderShowcase(containerSelector, productIds) {
     .join('');
 }
 
-renderProducts('#featured .products__container', sections.featured);
-renderProducts('#popular .products__container', sections.popular);
-renderProducts('#new-added .products__container', sections.newAdded);
-/* Las tarjetas del carrusel se dibujan antes de crear el Swiper (más abajo) */
-renderProducts('.new__container .swiper-wrapper', sections.newArrivals, 'swiper-slide');
+/* main.js se carga en todas las páginas: cada bloque comprueba primero
+   que su sección exista en la página actual (si no, se lo salta) */
+if (document.getElementById('featured')) {
+  renderProducts('#featured .products__container', sections.featured);
+  renderProducts('#popular .products__container', sections.popular);
+  renderProducts('#new-added .products__container', sections.newAdded);
+  /* Las tarjetas del carrusel se dibujan antes de crear el Swiper (más abajo) */
+  renderProducts('.new__container .swiper-wrapper', sections.newArrivals, 'swiper-slide');
 
-renderShowcase('#showcase-launches', showcase.launches);
-renderShowcase('#showcase-offers', showcase.offers);
-renderShowcase('#showcase-best-sellers', showcase.bestSellers);
-renderShowcase('#showcase-trending', showcase.trending);
+  renderShowcase('#showcase-launches', showcase.launches);
+  renderShowcase('#showcase-offers', showcase.offers);
+  renderShowcase('#showcase-best-sellers', showcase.bestSellers);
+  renderShowcase('#showcase-trending', showcase.trending);
+}
 
 /*=============== SWIPER FEATURES ===============*/
-var swiperFeatured = new Swiper('.features__container', {
+if (document.querySelector('.features__container')) {
+  var swiperFeatured = new Swiper('.features__container', {
         spaceBetween: 24,
         loop: true,
         
@@ -167,9 +172,11 @@ var swiperFeatured = new Swiper('.features__container', {
           }, 
         },
       });
+}
 
 /*=============== SWIPER PRODUCTS ===============*/
-var swiperProducts = new Swiper('.new__container', {
+if (document.querySelector('.new__container')) {
+  var swiperProducts = new Swiper('.new__container', {
         spaceBetween: 24,
         loop: true,
         
@@ -193,7 +200,7 @@ var swiperProducts = new Swiper('.new__container', {
           }, 
         },
       });
-
+}
 
 /*=============== PRODUCTS TABS ===============*/
 const tabs = document.querySelectorAll('[data-target]'),
@@ -222,12 +229,14 @@ tabs.forEach((tab) => {
   El navegador ya comprueba que el correo sea válido (type="email" required) */
 const newsletterForm = document.getElementById('newsletter-form');
 
-newsletterForm.addEventListener('submit', (event) => {
-  event.preventDefault();
+if (newsletterForm) {
+  newsletterForm.addEventListener('submit', (event) => {
+    event.preventDefault();
 
-  const message = document.createElement('p');
-  message.className = 'newsletter__success';
-  message.textContent = '¡Gracias por unirte! Pronto recibirás nuestras dulces novedades.';
+    const message = document.createElement('p');
+    message.className = 'newsletter__success';
+    message.textContent = '¡Gracias por unirte! Pronto recibirás nuestras dulces novedades.';
 
-  newsletterForm.replaceWith(message);
-});
+    newsletterForm.replaceWith(message);
+  });
+}

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--================= FLATICON =================-->
+  <link 
+    rel='stylesheet' 
+    href='https://cdn-uicons.flaticon.com/4.0.0/uicons-regular-straight/css/uicons-regular-straight.css'>
+  <link 
+    rel='stylesheet' 
+    href='https://cdn-uicons.flaticon.com/4.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+  <!--================= SWIPER CSS =================-->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+  />
+  <!--================= CSS =================-->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" type="image/png" href="assets/img/marca/favicon-chocofeel-32pixeles.png">
+  <title>Personaliza tu bombón | ChocoFeel</title>
+</head>
+<body>
+  <!--================= HEADER =================-->
+  <header class="header">
+    <div class="header__top">
+      <div class="header__container container">
+        <div class="header__contact">
+          <span>(+57) - 1234 - 5678</span>
+          <span> Bogotá, Colombia</span>
+        </div>
+        <p class="header__alert-news">
+          Nuevos productos - Precios accesibles
+        </p>
+        <a href="login-register.html" class="header__top-action">
+          Iniciar sesión / Registrarse
+        </a>
+      </div>
+    </div>
+    <nav class="nav container">
+      <a href="index.html" class="nav__logo">
+          <img src="assets/img/marca/logo-chocofeel-mejorado-sinfondo.webp" alt="" class="nav__logo-img">
+      </a>
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="index.html" class="nav__link">Inicio</a>
+          </li>
+          <li class="nav__item">
+            <a href="shop.html" class="nav__link">Tienda</a>
+          </li>
+          <li class="nav__item">
+            <a href="customize.html" class="nav__link active-link">Personaliza</a>
+          </li>
+          <li class="nav__item">
+            <a href="about.html" class="nav__link">Nosotros</a>
+          </li>
+          <li class="nav__item">
+            <a href="accounts.html" class="nav__link">Mi cuenta</a>
+          </li>
+        </ul>
+        <div class="header__search">
+          <input type="text" placeholder="Buscar chocolates..." class="form__input">
+          <button class="search__btn">
+            <img src="assets/img/icons/search.png" alt="">
+          </button>
+        </div>
+      </div>
+      <div class="header__user-actions">
+          <a href="wishlist.html" class="header__action-btn">
+            <img src="assets/img/icons/icon-heart.svg" alt="">
+            <span class="count">3</span>
+          </a>
+          <a href="cart.html" class="header__action-btn">
+            <img src="assets/img/icons/icon-cart.svg" alt="">
+            <span class="count">3</span>
+          </a>
+      </div>
+    </nav>
+  </header>
+  <!--================= MAIN =================-->
+  <main class="main">
+    <!--================= BREADCRUMB =================-->
+    <section class="breadcrumb">
+      <ul class="breadcrumb__list flex container">
+        <li><a href="index.html" class="breadcrumb__link">Inicio</a></li>
+        <li><span class="breadcrumb__link">></span></li>
+        <li><span class="breadcrumb__link">Personaliza tu bombón</span></li>
+      </ul>
+    </section>
+    <!--================= CUSTOMIZE =================-->
+    <section class="customize section--lg container">
+      <h1 class="customize__title">Personaliza tu <span>bombón</span></h1>
+      <p class="customize__description">
+        Elige cómo te sientes y te sugerimos un sabor. Después ajusta cada detalle a tu gusto.
+      </p>
+      <div class="customize__container grid">
+        <!-- Las opciones de cada paso las dibuja customize.js con los datos de products.js -->
+        <form class="customize__form" id="customize-form">
+          <fieldset class="customize__step">
+            <legend class="customize__legend"><span>1</span> ¿Cómo te sientes hoy?</legend>
+            <div class="customize__options" id="mood-options"></div>
+            <p class="customize__hint" id="mood-hint">Opcional: elige una emoción y te sugerimos relleno y colores.</p>
+          </fieldset>
+          <fieldset class="customize__step">
+            <legend class="customize__legend"><span>2</span> Forma</legend>
+            <div class="customize__options customize__options--shapes" id="shape-options"></div>
+          </fieldset>
+          <fieldset class="customize__step">
+            <legend class="customize__legend"><span>3</span> Tipo de chocolate</legend>
+            <div class="customize__options" id="chocolate-options"></div>
+          </fieldset>
+          <fieldset class="customize__step">
+            <legend class="customize__legend"><span>4</span> Relleno</legend>
+            <div class="customize__options" id="filling-options"></div>
+          </fieldset>
+          <fieldset class="customize__step">
+            <legend class="customize__legend"><span>5</span> Decoración</legend>
+            <div class="customize__options" id="decoration-options"></div>
+            <div class="customize__colors" id="colors-box">
+              <p class="customize__hint" id="colors-hint"></p>
+              <div class="customize__options" id="color-options"></div>
+            </div>
+            <label class="form__check">
+              <input type="checkbox" name="gold" id="gold-option">
+              <span id="gold-label"></span>
+            </label>
+          </fieldset>
+          <fieldset class="customize__step">
+            <legend class="customize__legend"><span>6</span> Tamaño de la caja</legend>
+            <div class="customize__options" id="box-options"></div>
+          </fieldset>
+          <fieldset class="customize__step">
+            <legend class="customize__legend"><span>7</span> Mensaje para la tarjeta</legend>
+            <textarea
+              name="message"
+              id="message"
+              class="form__input customize__message"
+              maxlength="120"
+              placeholder="Opcional: escribe un mensaje para acompañar tu regalo"></textarea>
+            <p class="customize__counter"><span id="message-count">0</span>/120</p>
+          </fieldset>
+        </form>
+        <!--================= RESUMEN =================-->
+        <aside class="customize__summary">
+          <h3 class="customize__summary-title">Tu caja</h3>
+          <div class="customize__preview">
+            <img src="" alt="" class="customize__preview-img" id="preview-img">
+            <div class="customize__preview-paint" id="preview-paint" aria-hidden="true"></div>
+          </div>
+          <p class="customize__preview-note">Imagen de la forma y colores aproximados</p>
+          <dl class="customize__details" id="summary-details"></dl>
+          <div class="customize__total">
+            <p>Precio por bombón <span id="unit-price"></span></p>
+            <p>Cantidad <span id="box-quantity"></span></p>
+            <p class="customize__total-price">Total <span id="total-price"></span></p>
+          </div>
+          <button type="submit" form="customize-form" class="btn customize__btn">Agregar al carrito</button>
+          <p class="customize__success" id="customize-success" role="status"></p>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <!--================= FOOTER =================-->
+  <footer class="footer container">
+    <div class="footer__container grid">
+      <div class="footer__content">
+        <a href="index.html" class="footer__logo">
+          <img src="assets/img/marca/logo-chocofeel-mejorado-sinfondo.webp" alt="" class="footer__logo-img">
+        </a>
+        <p class="footer__description">
+          <span>Dirección:</span> Cra. 92 #156-89 Pinar, Bogotá
+        </p>
+        <p class="footer__description">
+          <span>Teléfono:</span> (+57) - 1234 - 5678
+        </p>
+        <p class="footer__description">
+          <span>Horario de atención:</span> 8:00AM - 6:00PM, Lunes - Sabado
+        </p>
+        <div class="footer__social">
+          <h4 class="footer__subtitle">Síguenos en Instagram</h4>
+          <div class="footer__social-links flex">
+            <a href="">
+              <img src="assets/img/icons/icon-facebook.svg" alt="" class="footer__social-icon">
+            </a>
+            <a href="">
+              <img src="assets/img/icons/icon-instagram.svg" alt="" class="footer__social-icon">
+            </a>
+            <a href="">
+              <img src="assets/img/icons/icon-pinterest.svg" alt="" class="footer__social-icon">
+            </a>
+            <a href="">
+              <img src="assets/img/icons/icon-twitter.svg" alt="" class="footer__social-icon">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__content">
+        <h3 class="footer__title">Conócenos</h3>
+        <ul class="footer__links">
+          <li><a href="about.html" class="footer__link">Sobre nosotros</a></li>
+          <li><a href="" class="footer__link">Información de envíos</a></li>
+          <li><a href="" class="footer__link">Política de privacidad</a></li>
+          <li><a href="" class="footer__link">Contáctanos</a></li>
+          <li><a href="" class="footer__link">Centro de ayuda</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__content">
+        <h3 class="footer__title">Mi cuenta</h3>
+        <ul class="footer__links">
+          <li><a href="login-register.html" class="footer__link">Iniciar sesión</a></li>
+          <li><a href="cart.html" class="footer__link">Ver carrito</a></li>
+          <li><a href="wishlist.html" class="footer__link">Mi lista de deseos</a></li>
+          <li><a href="" class="footer__link">Seguir mi pedido</a></li>
+          <li><a href="" class="footer__link">Ayuda</a></li>
+          <li><a href="accounts.html" class="footer__link">Mis pedidos</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__content">
+        <h3 class="footer__title">Métodos de pago seguros</h3>
+
+        <img src="assets/img/payment-method/payment-method.png" alt="" class="payment__img">
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p class="copyright">&copy; 2026 ChocoFeel. Todos los derechos reservados </p>
+      <p class="designer">
+        Diseñado por Thebrinks · Iconos de <a href="https://www.flaticon.es/uicons" 
+        target="_blank">UIcons de Flaticon</a>
+      </p>
+      <p class="designer">
+        Imágenes de referencia con fines académicos
+      </p>
+    </div>
+  </footer>
+  <!--================= JS =================-->
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/customize.js"></script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 /*=============== GOOGLE FONTS ===============*/
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200..1000&family=Playfair+Display:wght@400..900&display=swap');
+/* Las fuentes se cargan con <link> en el <head> de cada página (más rápido que @import) */
 
 /*=============== VARIABLES CSS ===============*/
 :root {

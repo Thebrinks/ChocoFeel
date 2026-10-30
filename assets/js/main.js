@@ -1,10 +1,27 @@
 /*=============== SHOW MENU ===============*/
+/* En pantallas pequeñas el menú se esconde a la derecha (ver styles.css):
+   el botón de hamburguesa le pone la clase "show-menu" y la X se la quita */
+const navMenu = document.getElementById('nav-menu');
+const navToggle = document.getElementById('nav-toggle');
+const navClose = document.getElementById('nav-close');
 
-/*===== CATEGORIES =====*/
-/* Validate if constant exists */
+function setMenu(open) {
+  navMenu.classList.toggle('show-menu', open);
+  navToggle.setAttribute('aria-expanded', open);
+  /* Al abrir, el foco pasa a la X para poder cerrar con el teclado */
+  if (open) navClose.focus();
+}
 
-/*===== CATEGORIES =====*/
-/* Validate if constant exists */
+navToggle.addEventListener('click', () => setMenu(true));
+navClose.addEventListener('click', () => setMenu(false));
+
+/* La tecla Escape también cierra el menú */
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && navMenu.classList.contains('show-menu')) {
+    setMenu(false);
+    navToggle.focus();
+  }
+});
 
 /*=============== IMAGE GALLERY ===============*/
 
@@ -189,7 +206,9 @@ if (document.getElementById('featured')) {
 /*=============== SWIPER FEATURES ===============*/
 if (document.querySelector('.features__container')) {
   var swiperFeatured = new Swiper('.features__container', {
-        spaceBetween: 24,
+        /* Celular: 2 tarjetas; desde 640px se usan los breakpoints */
+        slidesPerView: 2,
+        spaceBetween: 16,
         loop: true,
         
         navigation: {

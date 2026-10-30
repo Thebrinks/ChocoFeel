@@ -919,13 +919,6 @@ input {
     cursor: pointer;
 }
 
-.form__success {
-    color: var(--title-color);
-    font-family: var(--second-font);
-    font-size: var(--large-font-size);
-    font-weight: var(--weight-600);
-}
-
 /*=============== CUSTOMIZE ===============*/
 .customize__title {
     font-size: var(--h2-font-size);
@@ -1620,6 +1613,121 @@ input {
 
 
 /*=============== CART OTHERS ===============*/
+
+/*=============== ACCOUNTS ===============*/
+.accounts__container {
+    grid-template-columns: 3fr 9fr;
+    align-items: start;
+    column-gap: 3rem;
+}
+
+.accounts__tabs {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-color-alt);
+    border-radius: 1.25rem;
+    overflow: hidden;
+}
+
+.accounts__tab {
+    display: flex;
+    align-items: center;
+    column-gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    color: var(--title-color);
+    font-family: var(--body-font);
+    font-size: var(--small-font-size);
+    font-weight: var(--weight-600);
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s var(--transition);
+}
+
+.accounts__tab:not(:last-child) {
+    border-bottom: 1px solid var(--border-color-alt);
+}
+
+.accounts__tab i {
+    display: flex;
+}
+
+.accounts__tab:hover,
+.accounts__tab.active-tab {
+    background-color: var(--first-color);
+    color: var(--body-color);
+}
+
+.accounts__tab:focus-visible {
+    outline: 2px solid var(--first-color);
+    outline-offset: -4px;
+}
+
+.accounts__panel {
+    border: 1px solid var(--border-color-alt);
+    border-radius: 1.25rem;
+    padding: 2rem;
+}
+
+.accounts__panel-title {
+    font-size: var(--large-font-size);
+    margin-bottom: 1.5rem;
+}
+
+.accounts__order {
+    background-color: var(--container-color);
+    border-radius: 1rem;
+    padding: 1.25rem 1.5rem;
+}
+
+.accounts__order:not(:last-child) {
+    margin-bottom: 1rem;
+}
+
+.accounts__order-header,
+.accounts__order-footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: var(--small-font-size);
+}
+
+.accounts__order-header h4 {
+    color: var(--title-color);
+    font-size: var(--normal-font-size);
+}
+
+.accounts__order-items {
+    margin-block: 0.75rem;
+    padding-block: 0.75rem;
+    border-block: 1px solid var(--border-color-alt);
+    font-size: var(--small-font-size);
+    line-height: 1.8;
+}
+
+.accounts__order-footer strong {
+    color: var(--title-color);
+}
+
+.accounts__empty p {
+    margin-bottom: 1.25rem;
+}
+
+.accounts__saved {
+    color: var(--title-color);
+    font-weight: var(--weight-600);
+    font-size: var(--small-font-size);
+}
+
+.accounts__saved:empty {
+    display: none;
+}
+
+.accounts__note {
+    margin-top: 1.5rem;
+    font-size: var(--smaller-font-size);
+    color: var(--text-color-light);
+}
 
 /*=============== CHECKOUT ===============*/
 .checkout__row {

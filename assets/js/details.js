@@ -45,8 +45,17 @@ function renderDetails() {
     .join('');
 
   document.getElementById('details-price').innerHTML = createPrices(product);
+  /* Solo se dice "pintado a mano" si el producto tiene decoración */
+  const decoration = customOptions.decorations.find((item) => item.id === product.decoration);
+  const painted = product.decoration !== 'sin-pintar';
+
   document.getElementById('details-description').textContent =
-    `Bombón de chocolate artesanal, pintado a mano, pensado para momentos de ${joinWithY(moodNames)}.`;
+    `Bombón de chocolate artesanal${painted ? ', pintado a mano' : ''}, ` +
+    `pensado para momentos de ${joinWithY(moodNames)}.`;
+  document.getElementById('details-decoration').textContent = painted
+    ? `Decoración: ${decoration.name.toLowerCase()}, con colorantes comestibles`
+    : 'Sin pintar: el chocolate se luce tal como es';
+  document.querySelector('[data-bonbon-size]').textContent = `${BONBON_SIZE_CM} cm y ${BONBON_WEIGHT_G} g`;
   document.getElementById('details-shipping').textContent =
     SHIPPING_COST === 0 ? 'gratis' : formatPrice(SHIPPING_COST);
 

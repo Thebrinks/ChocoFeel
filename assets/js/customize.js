@@ -90,6 +90,10 @@ document.getElementById('box-options').innerHTML = customOptions.boxes
   .map((box) => createOption('box', { id: box, name: `${box} bombones` }, 'radio', box === 6))
   .join('');
 
+/* Tamaño y peso de cada bombón (constantes de products.js) */
+document.getElementById('bonbon-size').textContent =
+  `Cada bombón mide aprox. ${BONBON_SIZE_CM} cm de ancho y pesa unos ${BONBON_WEIGHT_G} g.`;
+
 /*=============== LEER LO QUE ELIGIÓ EL CLIENTE ===============*/
 function getSelection() {
   const data = new FormData(form);
@@ -182,6 +186,7 @@ function updateSummary() {
 
   document.getElementById('unit-price').textContent = formatPrice(unitPrice);
   document.getElementById('box-quantity').textContent = `${selection.box} bombones`;
+  document.getElementById('box-weight').textContent = `${selection.box * BONBON_WEIGHT_G} g`;
   document.getElementById('total-price').textContent = formatPrice(unitPrice * selection.box);
 }
 

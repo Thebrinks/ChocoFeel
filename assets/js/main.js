@@ -172,7 +172,7 @@ function createShowcaseItem(product) {
       </a>
       <div class="showcase__content">
         <a href="details.html?id=${product.id}">
-          <h4 class="showcase__title">${product.name}</h4>
+          <h3 class="showcase__title">${product.name}</h3>
         </a>
         <div class="showcase__price flex">${createPrices(product)}</div>
       </div>
@@ -276,9 +276,11 @@ tabs.forEach((tab) => {
 
     tabs.forEach((tab) => {
       tab.classList.remove('active-tab');
+      tab.setAttribute('aria-selected', 'false');
     });
 
     tab.classList.add('active-tab');
+    tab.setAttribute('aria-selected', 'true');
   });
 });
 

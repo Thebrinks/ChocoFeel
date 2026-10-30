@@ -40,7 +40,7 @@ function createOrderCard(order) {
   return `
     <article class="accounts__order">
       <div class="accounts__order-header">
-        <h4>Pedido ${order.number}</h4>
+        <h3>Pedido ${order.number}</h3>
         <span>${formatDate(order.date)}</span>
       </div>
       <ul class="accounts__order-items">${items}</ul>

@@ -10,9 +10,13 @@
     --first-color-alt: #f8efe4;
     --second-color: #edd7bb;
     --title-color: #8f5a3e;
-    --subtitle-color: #b2704e;
-    --text-color: #b2704e;
-    --text-color-light: #c18d72;
+    /* Texto normal en #8f5a3e: contraste 5,68:1 sobre blanco y 4,99:1 sobre
+       #f8efe4 (WCAG pide 4,5:1). #b2704e solo llega a 3,95:1, así que queda
+       para los títulos grandes (--big-title-color), donde basta con 3:1 */
+    --subtitle-color: #8f5a3e;
+    --text-color: #8f5a3e;
+    --text-color-light: #8f5a3e;
+    --big-title-color: #b2704e;
     --body-color: #fff;
     --container-color: #f8efe4;
     --border-color: #8f5a3e;
@@ -107,6 +111,21 @@ h4 {
     font-weight: var(--weight-700);
 }
 
+/* Títulos de sección que son <h2> por orden (h1 > h2 > h3) pero se ven
+   como los <h3> del diseño original */
+.section__title,
+.footer__title,
+.footer__subtitle,
+.newsletter__title,
+.cart__summary-title,
+.customize__summary-title,
+.about__card-title,
+.accounts__panel-title,
+.info__card h2 {
+    font-family: var(--body-font);
+    font-weight: var(--weight-700);
+}
+
 ul {
     list-style: none;
 }
@@ -131,6 +150,12 @@ input {
     outline: none;
 }
 
+/* Borde visible cuando se navega con el teclado (Tab). Con el mouse no aparece */
+:focus-visible {
+    outline: 2px solid var(--first-color);
+    outline-offset: 2px;
+}
+
 /*=============== REUSABLE CSS CLASES ===============*/
 .container {
     max-width: 1320px;
@@ -153,6 +178,7 @@ input {
 
 .section__title {
     font-size: var(--h4-font-size);
+    color: var(--big-title-color);
     margin-bottom: 1.5rem
 }
 
@@ -328,7 +354,7 @@ input {
     font-size: var(--h1-font-size);
     font-weight: var(--weight-700);
     line-height: 1.4;
-    color: var(--subtitle-color);
+    color: var(--big-title-color);
 }
 
 .home__title span {
@@ -370,6 +396,8 @@ input {
 }
 
 .feature__item {
+    display: block;
+    height: 100%;
     text-align: center;
     border: 1px solid var(--border-color);
     padding: 0.625rem 0.625rem 1.25rem;
@@ -627,8 +655,8 @@ input {
 
 /* Active Tab */
 .tab__btn.active-tab {
-    color: var(--title-color);
-    background-color: var(--second-color);
+    color: var(--body-color);
+    background-color: var(--first-color);
 }
 
 .tab__item:not(.active-tab) {
@@ -692,6 +720,8 @@ input {
 
 .showcase__wrapper .section__title {
     font-size: var(--normal-font-size);
+    /* Este título es pequeño: necesita el color oscuro para el contraste */
+    color: var(--title-color);
     border-bottom: 1px solid var(--border-color-alt);
     padding-bottom: 0.75rem;
     margin-bottom: 2rem;
@@ -965,7 +995,7 @@ input {
 /*=============== CUSTOMIZE ===============*/
 .customize__title {
     font-size: var(--h2-font-size);
-    color: var(--subtitle-color);
+    color: var(--big-title-color);
 }
 
 .customize__title span {
@@ -1242,7 +1272,7 @@ input {
 
 .about__title {
     font-size: var(--h2-font-size);
-    color: var(--subtitle-color);
+    color: var(--big-title-color);
     margin-bottom: 1rem;
 }
 
@@ -1301,7 +1331,7 @@ input {
     margin: 0 auto 1.25rem;
     border-radius: 50%;
     object-fit: cover;
-    background-color: var(--second-color);
+    background-color: var(--container-color);
     color: var(--first-color);
     font-weight: var(--weight-600);
 }
@@ -1330,7 +1360,7 @@ input {
 
 .shop__title {
     font-size: var(--h2-font-size);
-    color: var(--subtitle-color);
+    color: var(--big-title-color);
 }
 
 .shop__title span {
@@ -1449,7 +1479,7 @@ input {
 
 .details__title {
     font-size: var(--h2-font-size);
-    color: var(--subtitle-color);
+    color: var(--big-title-color);
     line-height: 1.2;
 }
 
@@ -1461,7 +1491,8 @@ input {
 }
 
 .details__mood {
-    background-color: var(--second-color);
+    background-color: var(--container-color);
+    border: 1px solid var(--first-color);
     color: var(--title-color);
     font-size: var(--small-font-size);
     font-weight: var(--weight-600);
@@ -1534,7 +1565,7 @@ input {
 /*=============== CART ===============*/
 .cart__title {
     font-size: var(--h2-font-size);
-    color: var(--subtitle-color);
+    color: var(--big-title-color);
     margin-bottom: 2rem;
 }
 
@@ -1840,7 +1871,7 @@ input {
     font-size: var(--small-font-size);
 }
 
-.accounts__order-header h4 {
+.accounts__order-header h3 {
     color: var(--title-color);
     font-size: var(--normal-font-size);
 }
@@ -1897,7 +1928,7 @@ input {
     padding: 1.5rem;
 }
 
-.info__card h3 {
+.info__card h2 {
     color: var(--title-color);
     font-size: var(--large-font-size);
     margin-block: 0.75rem 0.25rem;

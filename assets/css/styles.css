@@ -2066,6 +2066,26 @@ input {
     margin-top: 0.75rem;
 }
 
+/*=============== 404 ===============*/
+.not-found {
+    text-align: center;
+}
+
+/* El número es decorativo (aria-hidden): solo necesita contraste de texto grande */
+.not-found__code {
+    font-family: var(--second-font);
+    font-size: 7rem;
+    font-weight: var(--weight-700);
+    line-height: 1;
+    color: var(--big-title-color);
+    margin-bottom: 1rem;
+}
+
+.not-found__text {
+    max-width: 520px;
+    margin: 0 auto 2rem;
+}
+
 /*=============== CHECKOUT ===============*/
 .checkout__row {
     display: grid;

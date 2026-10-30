@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- GitHub Pages muestra este archivo en cualquier dirección que no exista
+       (por ejemplo /ChocoFeel/tienda/vieja). <base> hace que las rutas relativas
+       (assets/..., shop.html) siempre partan de /ChocoFeel/. Por eso, abierto
+       directamente desde la computadora (file://), esta página se ve sin estilos -->
+  <base href="/ChocoFeel/">
+  <meta name="robots" content="noindex">
+  <!--================= FLATICON =================-->
+  <link 
+    rel='stylesheet' 
+    href='https://cdn-uicons.flaticon.com/4.0.0/uicons-regular-straight/css/uicons-regular-straight.css'>
+  <!--================= GOOGLE FONTS =================-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200..1000&family=Playfair+Display:wght@400..900&display=swap">
+  <!--================= CSS =================-->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" type="image/png" href="assets/img/marca/favicon-chocofeel-32pixeles.png">
+  <title>Página no encontrada | ChocoFeel</title>
+</head>
+<body>
+  <!--================= HEADER =================-->
+  <header class="header">
+    <div class="header__top">
+      <div class="header__container container">
+        <div class="header__contact">
+          <span>(+57) - 1234 - 5678</span>
+          <span> Bogotá, Colombia</span>
+        </div>
+        <p class="header__alert-news">
+          Nuevos productos - Precios accesibles
+        </p>
+        <a href="login-register.html" class="header__top-action">
+          Iniciar sesión / Registrarse
+        </a>
+      </div>
+    </div>
+    <nav class="nav container">
+      <a href="index.html" class="nav__logo">
+          <img src="assets/img/marca/logo-chocofeel-mejorado-sinfondo.webp" alt="ChocoFeel - Inicio" class="nav__logo-img">
+      </a>
+      <div class="nav__menu" id="nav-menu">
+        <button type="button" class="nav__close" id="nav-close" aria-label="Cerrar menú">
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+            <path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="index.html" class="nav__link">Inicio</a>
+          </li>
+          <li class="nav__item">
+            <a href="shop.html" class="nav__link">Tienda</a>
+          </li>
+          <li class="nav__item">
+            <a href="customize.html" class="nav__link">Personaliza</a>
+          </li>
+          <li class="nav__item">
+            <a href="about.html" class="nav__link">Nosotros</a>
+          </li>
+          <li class="nav__item">
+            <a href="accounts.html" class="nav__link">Mi cuenta</a>
+          </li>
+        </ul>
+        <div class="header__search">
+          <input type="text" placeholder="Buscar chocolates..." class="form__input" aria-label="Buscar chocolates">
+          <button class="search__btn" aria-label="Buscar">
+            <img src="assets/img/icons/search.png" alt="">
+          </button>
+        </div>
+      </div>
+      <div class="header__user-actions">
+          <a href="wishlist.html" class="header__action-btn" aria-label="Favoritos">
+            <img src="assets/img/icons/icon-heart.svg" alt="">
+            <span class="count" hidden>0</span>
+          </a>
+          <a href="cart.html" class="header__action-btn" aria-label="Carrito">
+            <img src="assets/img/icons/icon-cart.svg" alt="">
+            <span class="count" hidden>0</span>
+          </a>
+          <button type="button" class="nav__toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+            <img src="assets/img/icons/menu-burger.svg" alt="">
+          </button>
+      </div>
+    </nav>
+  </header>
+  <!--================= MAIN =================-->
+  <main class="main">
+    <!--================= 404 =================-->
+    <section class="not-found section--lg container">
+      <p class="not-found__code" aria-hidden="true">404</p>
+      <h1 class="cart__title">Esta página se <span>derritió</span></h1>
+      <p class="not-found__text">
+        No encontramos la página que buscas. Puede que la dirección esté mal escrita
+        o que la página ya no exista.
+      </p>
+      <div class="cart__empty-btns">
+        <a href="index.html" class="btn">Volver al inicio</a>
+        <a href="shop.html" class="btn btn--outline">Ir a la tienda</a>
+        <a href="customize.html" class="btn btn--outline">Personaliza tu bombón</a>
+      </div>
+    </section>
+  </main>
+  <!--================= FOOTER =================-->
+  <footer class="footer container">
+    <div class="footer__container grid">
+      <div class="footer__content">
+        <a href="index.html" class="footer__logo">
+          <img src="assets/img/marca/logo-chocofeel-mejorado-sinfondo.webp" alt="ChocoFeel - Inicio" class="footer__logo-img">
+        </a>
+        <p class="footer__description">
+          <span>Dirección:</span> Cra. 92 #156-89 Pinar, Bogotá
+        </p>
+        <p class="footer__description">
+          <span>Teléfono:</span> (+57) - 1234 - 5678
+        </p>
+        <p class="footer__description">
+          <span>Horario de atención:</span> 8:00AM - 6:00PM, Lunes - Sabado
+        </p>
+        <div class="footer__social">
+          <h2 class="footer__subtitle">Síguenos en redes sociales</h2>
+          <!-- target="_blank" abre otra pestaña; rel="noopener" evita que esa pestaña controle la nuestra -->
+          <div class="footer__social-links flex">
+            <a href="https://www.facebook.com/profile.php?id=61595701816615" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/icons/icon-facebook.svg" alt="Facebook de ChocoFeel" class="footer__social-icon">
+            </a>
+            <a href="https://www.instagram.com/chocofeel.cf/" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/icons/icon-instagram.svg" alt="Instagram de ChocoFeel" class="footer__social-icon">
+            </a>
+            <a href="https://pin.it/2lU4I6KXs" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/icons/icon-pinterest.svg" alt="Pinterest de ChocoFeel" class="footer__social-icon">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__content">
+        <h2 class="footer__title">Conócenos</h2>
+        <ul class="footer__links">
+          <li><a href="about.html" class="footer__link">Sobre nosotros</a></li>
+          <li><a href="shipping.html" class="footer__link">Información de envíos</a></li>
+          <li><a href="privacy.html" class="footer__link">Política de privacidad</a></li>
+          <li><a href="contact.html" class="footer__link">Contáctanos</a></li>
+          <li><a href="help.html" class="footer__link">Centro de ayuda</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__content">
+        <h2 class="footer__title">Mi cuenta</h2>
+        <ul class="footer__links">
+          <li><a href="login-register.html" class="footer__link">Iniciar sesión</a></li>
+          <li><a href="cart.html" class="footer__link">Ver carrito</a></li>
+          <li><a href="wishlist.html" class="footer__link">Mis favoritos</a></li>
+          <li><a href="accounts.html" class="footer__link">Seguir mi pedido</a></li>
+          <li><a href="help.html" class="footer__link">Ayuda</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__content">
+        <h2 class="footer__title">Métodos de pago seguros</h2>
+
+        <img src="assets/img/payment-method/payment-method.webp" alt="Métodos de pago: Visa, Mastercard, Maestro y American Express" class="payment__img">
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p class="copyright">&copy; 2026 ChocoFeel. Todos los derechos reservados </p>
+      <p class="designer">
+        Diseñado por Thebrinks · Iconos de <a href="https://www.flaticon.es/uicons" 
+        target="_blank">UIcons de Flaticon</a>
+      </p>
+      <p class="designer">
+        Imágenes de referencia con fines académicos
+      </p>
+    </div>
+  </footer>
+  <!--================= JS =================-->
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

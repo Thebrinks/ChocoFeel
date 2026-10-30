@@ -107,6 +107,21 @@ h4 {
     font-weight: var(--weight-700);
 }
 
+/* Títulos de sección que son <h2> por orden (h1 > h2 > h3) pero se ven
+   como los <h3> del diseño original */
+.section__title,
+.footer__title,
+.footer__subtitle,
+.newsletter__title,
+.cart__summary-title,
+.customize__summary-title,
+.about__card-title,
+.accounts__panel-title,
+.info__card h2 {
+    font-family: var(--body-font);
+    font-weight: var(--weight-700);
+}
+
 ul {
     list-style: none;
 }
@@ -129,6 +144,12 @@ input {
     background-color: transparent;
     border: none;
     outline: none;
+}
+
+/* Borde visible cuando se navega con el teclado (Tab). Con el mouse no aparece */
+:focus-visible {
+    outline: 2px solid var(--first-color);
+    outline-offset: 2px;
 }
 
 /*=============== REUSABLE CSS CLASES ===============*/
@@ -370,6 +391,8 @@ input {
 }
 
 .feature__item {
+    display: block;
+    height: 100%;
     text-align: center;
     border: 1px solid var(--border-color);
     padding: 0.625rem 0.625rem 1.25rem;
@@ -1840,7 +1863,7 @@ input {
     font-size: var(--small-font-size);
 }
 
-.accounts__order-header h4 {
+.accounts__order-header h3 {
     color: var(--title-color);
     font-size: var(--normal-font-size);
 }
@@ -1897,7 +1920,7 @@ input {
     padding: 1.5rem;
 }
 
-.info__card h3 {
+.info__card h2 {
     color: var(--title-color);
     font-size: var(--large-font-size);
     margin-block: 0.75rem 0.25rem;

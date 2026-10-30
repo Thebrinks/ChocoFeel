@@ -66,7 +66,7 @@
           </li>
         </ul>
         <div class="header__search">
-          <input type="text" placeholder="Buscar chocolates..." class="form__input">
+          <input type="text" placeholder="Buscar chocolates..." class="form__input" aria-label="Buscar chocolates">
           <button class="search__btn" aria-label="Buscar">
             <img src="assets/img/icons/search.png" alt="">
           </button>
@@ -102,44 +102,58 @@
           </p>
           <a href="customize.html" class="btn">Personaliza tu chocolate</a>
         </div>
-        <img src="assets/img/banner/banner--colors-chocolates.webp" alt="" class="home__img">
+        <img src="assets/img/banner/banner--colors-chocolates.webp" alt="Bombones de chocolate pintados a mano de muchos colores" class="home__img">
       </div>
     </section>
     <!--================= FEATURES =================-->
     <section class="featured container section">
-      <h3 class="section__title">
+      <h2 class="section__title">
           <span>Chocolates</span> destacados
-      </h3>
+      </h2>
       <div class="features__container swiper">
         <div class="swiper-wrapper">
-          <a href="shop.html" class="feature__item swiper-slide">
-            <img src="assets/img/features/feature-1.webp" loading="lazy" alt="" class="feature__img">
-            <h3 class="feature__title">Bombón de Acuarela</h3>
-          </a>
-          <a href="shop.html" class="feature__item swiper-slide">
-            <img src="assets/img/features/feature-2.webp" loading="lazy" alt="" class="feature__img">
-            <h3 class="feature__title">Bombón del Cielo</h3>
-          </a>
-          <a href="shop.html" class="feature__item swiper-slide">
-            <img src="assets/img/features/feature-3.webp" loading="lazy" alt="" class="feature__img">
-            <h3 class="feature__title">Bombón del Atardecer</h3>
-          </a>
-          <a href="shop.html" class="feature__item swiper-slide">
-            <img src="assets/img/features/feature-4.webp" loading="lazy" alt="" class="feature__img">
-            <h3 class="feature__title">Bombón de Carmesí</h3>
-          </a>
-          <a href="shop.html" class="feature__item swiper-slide">
-            <img src="assets/img/features/feature-5.webp" loading="lazy" alt="" class="feature__img">
-            <h3 class="feature__title">Bombón de Ámbar</h3>
-          </a>
-          <a href="shop.html" class="feature__item swiper-slide">
-            <img src="assets/img/features/feature-6.webp" loading="lazy" alt="" class="feature__img">
-            <h3 class="feature__title">Bombón del Cosmos</h3>
-          </a>
-          <a href="shop.html" class="feature__item swiper-slide">
-            <img src="assets/img/features/feature-7.webp" loading="lazy" alt="" class="feature__img">
-            <h3 class="feature__title">Bombón Áureo</h3>
-          </a>
+          <div class="swiper-slide">
+            <a href="shop.html" class="feature__item">
+              <img src="assets/img/features/feature-1.webp" loading="lazy" alt="" class="feature__img">
+              <h3 class="feature__title">Bombón de Acuarela</h3>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="shop.html" class="feature__item">
+              <img src="assets/img/features/feature-2.webp" loading="lazy" alt="" class="feature__img">
+              <h3 class="feature__title">Bombón del Cielo</h3>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="shop.html" class="feature__item">
+              <img src="assets/img/features/feature-3.webp" loading="lazy" alt="" class="feature__img">
+              <h3 class="feature__title">Bombón del Atardecer</h3>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="shop.html" class="feature__item">
+              <img src="assets/img/features/feature-4.webp" loading="lazy" alt="" class="feature__img">
+              <h3 class="feature__title">Bombón de Carmesí</h3>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="shop.html" class="feature__item">
+              <img src="assets/img/features/feature-5.webp" loading="lazy" alt="" class="feature__img">
+              <h3 class="feature__title">Bombón de Ámbar</h3>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="shop.html" class="feature__item">
+              <img src="assets/img/features/feature-6.webp" loading="lazy" alt="" class="feature__img">
+              <h3 class="feature__title">Bombón del Cosmos</h3>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="shop.html" class="feature__item">
+              <img src="assets/img/features/feature-7.webp" loading="lazy" alt="" class="feature__img">
+              <h3 class="feature__title">Bombón Áureo</h3>
+            </a>
+          </div>
         </div>
         <div class="swiper-button-next">
           <i class="fi fi-rs-angle-right"></i>
@@ -151,30 +165,29 @@
     </section> 
     <!--================= PRODUCTS =================-->
     <section class="products section container">
-      <div class="tab__btns">
-        <span class="tab__btn active-tab" data-target="#featured">Destacados</span>
-        <span class="tab__btn"
-        data-target="#popular">Populares</span>
-        <span class="tab__btn"
-        data-target="#new-added">Recién agregados</span>
+      <!-- Pestañas con <button> para que funcionen con el teclado (Tab y Enter) -->
+      <div class="tab__btns" role="tablist" aria-label="Productos">
+        <button type="button" class="tab__btn active-tab" role="tab" aria-selected="true" aria-controls="featured" data-target="#featured">Destacados</button>
+        <button type="button" class="tab__btn" role="tab" aria-selected="false" aria-controls="popular" data-target="#popular">Populares</button>
+        <button type="button" class="tab__btn" role="tab" aria-selected="false" aria-controls="new-added" data-target="#new-added">Recién agregados</button>
       </div>
       <div class="tab__items">
-        <div class="tab__item active-tab" content id="featured">
+        <div class="tab__item active-tab" content id="featured" role="tabpanel">
           <div class="products__container grid"></div>
         </div>
-        <div class="tab__item" content id="popular">
+        <div class="tab__item" content id="popular" role="tabpanel">
           <div class="products__container grid"></div>
         </div>
-        <div class="tab__item" content id="new-added">
+        <div class="tab__item" content id="new-added" role="tabpanel">
           <div class="products__container grid"></div>
         </div>
       </div>
     </section>
     <!--================= NEW ARRIVALS =================-->
     <section class="new__arrivals container section">
-      <h3 class="section__title">
+      <h2 class="section__title">
           <span>Novedades</span>
-      </h3>
+      </h2>
       <div class="new__container swiper">
         <div class="swiper-wrapper"></div>
         <div class="swiper-button-next">
@@ -189,19 +202,19 @@
     <section class="showcase section">
       <div class="showcase__container container grid">
         <div class="showcase__wrapper">
-          <h3 class="section__title">Lanzamientos destacados</h3>
+          <h2 class="section__title">Lanzamientos destacados</h2>
           <div id="showcase-launches"></div>
         </div>
         <div class="showcase__wrapper">
-          <h3 class="section__title">Ofertas y descuentos</h3>
+          <h2 class="section__title">Ofertas y descuentos</h2>
           <div id="showcase-offers"></div>
         </div>
         <div class="showcase__wrapper">
-          <h3 class="section__title">Más vendidos</h3>
+          <h2 class="section__title">Más vendidos</h2>
           <div id="showcase-best-sellers"></div>
         </div>
         <div class="showcase__wrapper">
-          <h3 class="section__title">Tendencia</h3>
+          <h2 class="section__title">Tendencia</h2>
           <div id="showcase-trending"></div>
         </div>
       </div>
@@ -209,13 +222,13 @@
     <!--================= NEWSLETTER =================-->
     <section class="newsletter section home__newsletter">
       <div class="newsletter__container container grid">
-        <h3 class="newsletter__title flex">
+        <h2 class="newsletter__title flex">
           <svg class="newsletter__icon" viewBox="0 0 300 300" width="1em" height="1em" fill="currentColor" aria-hidden="true">
             <!-- Ícono "envelope" de UIcons de Flaticon (regular rounded), copiado como SVG -->
             <path transform="matrix(1 0 0 -1 0 300)" d="M238 288H63Q46 287 31.5 279.0Q17 271 8.5 256.5Q0 242 0 225V75Q0 58 8.5 43.5Q17 29 31.5 21.0Q46 13 62 12H238Q254 13 268.5 21.0Q283 29 291.5 43.5Q300 58 300 75V225Q300 242 291.5 256.5Q283 271 268.5 279.0Q254 287 238 288ZM63 263H238Q249 262 258.5 256.0Q268 250 272 239L177 143Q166 132 150.0 132.0Q134 132 123 143L28 239Q32 250 41.5 256.0Q51 262 62 262ZM238 38H63Q47 38 36.0 48.5Q25 59 25 75V206L106 126Q118 114 134.0 109.5Q150 105 166.0 109.5Q182 114 194 126L275 206V75Q275 59 264.0 48.5Q253 38 237 38Z"/>
           </svg>
           Dulces novedades
-        </h3>
+        </h2>
         <p class="newsletter__description">
           "Suscríbete y recibe un 25% de descuento en tu primera compra"
         </p>
@@ -223,7 +236,8 @@
           <input 
           type="email" 
           placeholder="Tu correo electrónico" 
-          class="newsletter__input" 
+          class="newsletter__input"
+          aria-label="Tu correo electrónico" 
           required>
           <button type="submit" class="newsletter__btn">Únete a ChocoFeel</button>
         </form>
@@ -235,7 +249,7 @@
     <div class="footer__container grid">
       <div class="footer__content">
         <a href="index.html" class="footer__logo">
-          <img src="assets/img/marca/logo-chocofeel-mejorado-sinfondo.webp" alt="" class="footer__logo-img">
+          <img src="assets/img/marca/logo-chocofeel-mejorado-sinfondo.webp" alt="ChocoFeel - Inicio" class="footer__logo-img">
         </a>
         <p class="footer__description">
           <span>Dirección:</span> Cra. 92 #156-89 Pinar, Bogotá
@@ -247,26 +261,26 @@
           <span>Horario de atención:</span> 8:00AM - 6:00PM, Lunes - Sabado
         </p>
         <div class="footer__social">
-          <h4 class="footer__subtitle">Síguenos en Instagram</h4>
+          <h2 class="footer__subtitle">Síguenos en Instagram</h2>
           <div class="footer__social-links flex">
             <a href="">
-              <img src="assets/img/icons/icon-facebook.svg" alt="" class="footer__social-icon">
+              <img src="assets/img/icons/icon-facebook.svg" alt="Facebook" class="footer__social-icon">
             </a>
             <a href="">
-              <img src="assets/img/icons/icon-instagram.svg" alt="" class="footer__social-icon">
+              <img src="assets/img/icons/icon-instagram.svg" alt="Instagram" class="footer__social-icon">
             </a>
             <a href="">
-              <img src="assets/img/icons/icon-pinterest.svg" alt="" class="footer__social-icon">
+              <img src="assets/img/icons/icon-pinterest.svg" alt="Pinterest" class="footer__social-icon">
             </a>
             <a href="">
-              <img src="assets/img/icons/icon-twitter.svg" alt="" class="footer__social-icon">
+              <img src="assets/img/icons/icon-twitter.svg" alt="Twitter" class="footer__social-icon">
             </a>
           </div>
         </div>
       </div>
 
       <div class="footer__content">
-        <h3 class="footer__title">Conócenos</h3>
+        <h2 class="footer__title">Conócenos</h2>
         <ul class="footer__links">
           <li><a href="about.html" class="footer__link">Sobre nosotros</a></li>
           <li><a href="shipping.html" class="footer__link">Información de envíos</a></li>
@@ -277,7 +291,7 @@
       </div>
 
       <div class="footer__content">
-        <h3 class="footer__title">Mi cuenta</h3>
+        <h2 class="footer__title">Mi cuenta</h2>
         <ul class="footer__links">
           <li><a href="login-register.html" class="footer__link">Iniciar sesión</a></li>
           <li><a href="cart.html" class="footer__link">Ver carrito</a></li>
@@ -288,9 +302,9 @@
       </div>
 
       <div class="footer__content">
-        <h3 class="footer__title">Métodos de pago seguros</h3>
+        <h2 class="footer__title">Métodos de pago seguros</h2>
 
-        <img src="assets/img/payment-method/payment-method.webp" alt="" class="payment__img">
+        <img src="assets/img/payment-method/payment-method.webp" alt="Métodos de pago: Visa, Mastercard, Maestro y American Express" class="payment__img">
       </div>
     </div>
 

@@ -448,6 +448,12 @@ if (topAction && currentUser) {
   topAction.href = 'accounts.html';
 }
 
+/*=============== COSTO DE ENVÍO ===============*/
+/* Cualquier elemento con data-shipping muestra el envío de products.js */
+document.querySelectorAll('[data-shipping]').forEach((element) => {
+  element.textContent = SHIPPING_COST === 0 ? 'gratis' : formatPrice(SHIPPING_COST);
+});
+
 /*=============== BUSCADOR DEL HEADER ===============*/
 /* Lleva a la tienda con lo escrito en la dirección: shop.html?q=arequipe
    (shop.js lee ese "q" y filtra los productos) */

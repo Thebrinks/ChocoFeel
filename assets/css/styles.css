@@ -1834,6 +1834,164 @@ input {
     color: var(--text-color-light);
 }
 
+/*=============== INFO (envíos, privacidad, contacto y ayuda) ===============*/
+.info .cart__title {
+    margin-bottom: 0.5rem;
+}
+
+.info__intro {
+    margin-bottom: 2.5rem;
+}
+
+.info__cards {
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 3rem;
+}
+
+.info__card {
+    background-color: var(--container-color);
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+}
+
+.info__card h3 {
+    color: var(--title-color);
+    font-size: var(--large-font-size);
+    margin-block: 0.75rem 0.25rem;
+}
+
+.info__card a {
+    color: var(--title-color);
+    font-weight: var(--weight-600);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    word-break: break-all;
+}
+
+.info__icon {
+    display: flex;
+    color: var(--first-color);
+    font-size: 1.75rem;
+}
+
+.info__content {
+    max-width: 800px;
+}
+
+.info__content h2 {
+    font-family: var(--body-font);
+    color: var(--title-color);
+    font-size: var(--large-font-size);
+    margin-block: 2rem 0.75rem;
+}
+
+.info__content h2:first-child {
+    margin-top: 0;
+}
+
+.info__content ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+    line-height: 1.8;
+}
+
+.info__content a,
+.help__item a {
+    color: var(--title-color);
+    font-weight: var(--weight-600);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.info__box {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem 1.5rem;
+    background-color: var(--container-color);
+    border-radius: 1.25rem;
+    padding: 1.5rem 2rem;
+    margin-top: 2.5rem;
+}
+
+.info__box p:first-child {
+    color: var(--title-color);
+    font-weight: var(--weight-600);
+}
+
+/* Contacto */
+.contact__container {
+    grid-template-columns: 4fr 8fr;
+    align-items: start;
+    column-gap: 3rem;
+}
+
+.contact__data {
+    display: grid;
+    row-gap: 1rem;
+}
+
+.contact__form {
+    border: 1px solid var(--border-color-alt);
+    border-radius: 1.25rem;
+    padding: 2rem;
+}
+
+.contact__form .accounts__panel-title {
+    margin-bottom: 0.5rem;
+}
+
+.contact__form .accounts__note {
+    margin-top: 0;
+}
+
+/* Ayuda: preguntas frecuentes */
+.help__list {
+    max-width: 900px;
+    display: grid;
+    row-gap: 1rem;
+}
+
+.help__item {
+    border: 1px solid var(--border-color-alt);
+    border-radius: 1rem;
+    padding: 1.125rem 1.5rem;
+}
+
+.help__item summary {
+    color: var(--title-color);
+    font-weight: var(--weight-700);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+/* Quita el triángulo de Safari y pone un + / − propio */
+.help__item summary::-webkit-details-marker {
+    display: none;
+}
+
+.help__item summary::after {
+    content: '+';
+    font-size: var(--large-font-size);
+    line-height: 1;
+}
+
+.help__item[open] summary::after {
+    content: '−';
+}
+
+.help__item summary:focus-visible {
+    outline: 2px solid var(--first-color);
+    outline-offset: 4px;
+}
+
+.help__item p {
+    margin-top: 0.75rem;
+}
+
 /*=============== CHECKOUT ===============*/
 .checkout__row {
     display: grid;

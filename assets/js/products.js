@@ -264,3 +264,95 @@ const showcase = {
     bestSellers: ['maracuya', 'frutos-rojos', 'zafiro-de-frutos-rojos'],
     trending: ['brownie', 'flan', 'frutos-rojos-con-limon'],
 };
+
+/*=============== PERSONALIZACIÓN ===============*/
+/* Opciones del armador de bombones (personaliza.html).
+    - extra: recargo por bombón en pesos (0 = sin recargo)
+    - productId: en las formas, el producto del que se toma la imagen */
+const BASE_PRICE = 4000;
+
+const customOptions = {
+    shapes: [
+        { id: 'corazon', name: 'Corazón', extra: 0, productId: 'corazon' },
+        { id: 'espiral', name: 'Espiral', extra: 0, productId: 'espiral' },
+        { id: 'prisma', name: 'Prisma', extra: 0, productId: 'prisma' },
+        { id: 'concha', name: 'Concha marina', extra: 0, productId: 'concha-marina' },
+        { id: 'remolino', name: 'Remolino', extra: 0, productId: 'remolino-sublime' },
+        { id: 'catedral', name: 'Catedral', extra: 0, productId: 'catedral-del-cacao' },
+    ],
+    chocolates: [
+        { id: 'leche', name: 'De leche', extra: 0 },
+        { id: 'oscuro', name: 'Oscuro', extra: 0 },
+        { id: 'blanco', name: 'Blanco', extra: 0 },
+    ],
+    fillings: [
+        { id: 'arequipe', name: 'Arequipe', extra: 0 },
+        { id: 'coco', name: 'Coco', extra: 0 },
+        { id: 'maracuya', name: 'Maracuyá', extra: 0 },
+        { id: 'pina', name: 'Piña', extra: 0 },
+        { id: 'frutos-rojos', name: 'Frutos rojos', extra: 0 },
+        { id: 'limon', name: 'Limón', extra: 0 },
+        { id: 'manzana', name: 'Manzana', extra: 0 },
+        { id: 'mani', name: 'Maní', extra: 1000 },
+        { id: 'flan', name: 'Flan', extra: 1000 },
+        { id: 'brownie', name: 'Brownie', extra: 1000 },
+        { id: 'avellana', name: 'Avellana', extra: 1000 },
+        { id: 'caramelo-salado', name: 'Caramelo salado', extra: 1000 },
+        { id: 'vino', name: 'Vino', extra: 1500 },
+    ],
+    decorations: [
+        { id: 'sin-pintar', name: 'Sin pintar', extra: 0 },
+        { id: 'un-color', name: 'Un color', extra: 500 },
+        { id: 'degradado', name: 'Degradado o salpicado', extra: 1000 },
+        { id: 'especial', name: 'Diseño especial (mármol, galaxia)', extra: 2000 },
+    ],
+    /* Colorantes comestibles para pintar el bombón (code = color en pantalla) */
+    colors: [
+        { id: 'amarillo', name: 'Amarillo', code: '#f5c518' },
+        { id: 'naranja', name: 'Naranja', code: '#f08a24' },
+        { id: 'rojo', name: 'Rojo', code: '#c62828' },
+        { id: 'rosado', name: 'Rosado', code: '#f48fb1' },
+        { id: 'morado', name: 'Morado', code: '#7b3fa0' },
+        { id: 'azul', name: 'Azul', code: '#3b82c4' },
+        { id: 'verde', name: 'Verde', code: '#3f9c5a' },
+        { id: 'dorado', name: 'Dorado', code: '#c9a227' },
+    ],
+    gold: { name: 'Acabado de oro comestible', extra: 1500 },
+    boxes: [4, 6, 9, 12],
+};
+
+/*=============== EMOCIONES ===============*/
+/* Cada emoción sugiere rellenos y colores (por su id en customOptions).
+   Es una propuesta de marca: el cliente puede cambiar todo después */
+const moods = [
+    {
+        id: 'alegria',
+        name: 'Alegría',
+        fillings: ['maracuya', 'pina'],
+        colors: ['amarillo', 'naranja'],
+    },
+    {
+        id: 'calma',
+        name: 'Calma',
+        fillings: ['arequipe', 'coco'],
+        colors: ['azul', 'verde'],
+    },
+    {
+        id: 'amor',
+        name: 'Amor',
+        fillings: ['frutos-rojos', 'vino'],
+        colors: ['rojo', 'rosado'],
+    },
+    {
+        id: 'nostalgia',
+        name: 'Nostalgia',
+        fillings: ['flan', 'brownie', 'manzana'],
+        colors: ['dorado', 'naranja'],
+    },
+    {
+        id: 'energia',
+        name: 'Energía',
+        fillings: ['mani', 'limon'],
+        colors: ['verde', 'morado'],
+    },
+];

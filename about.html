@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--================= FLATICON =================-->
+  <link 
+    rel='stylesheet' 
+    href='https://cdn-uicons.flaticon.com/4.0.0/uicons-regular-straight/css/uicons-regular-straight.css'>
+  <link 
+    rel='stylesheet' 
+    href='https://cdn-uicons.flaticon.com/4.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+  <!--================= SWIPER CSS =================-->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+  />
+  <!--================= CSS =================-->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" type="image/png" href="assets/img/marca/favicon-chocofeel-32pixeles.png">
+  <title>Sobre nosotros | ChocoFeel</title>
+</head>
+<body>
+  <!--================= HEADER =================-->
+  <header class="header">
+    <div class="header__top">
+      <div class="header__container container">
+        <div class="header__contact">
+          <span>(+57) - 1234 - 5678</span>
+          <span> Bogotá, Colombia</span>
+        </div>
+        <p class="header__alert-news">
+          Nuevos productos - Precios accesibles
+        </p>
+        <a href="login-register.html" class="header__top-action">
+          Iniciar sesión / Registrarse
+        </a>
+      </div>
+    </div>
+    <nav class="nav container">
+      <a href="index.html" class="nav__logo">
+          <img src="assets/img/marca/logo-chocofeel-mejorado-sinfondo.webp" alt="" class="nav__logo-img">
+      </a>
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="index.html" class="nav__link">Inicio</a>
+          </li>
+          <li class="nav__item">
+            <a href="shop.html" class="nav__link">Tienda</a>
+          </li>
+          <li class="nav__item">
+            <a href="customize.html" class="nav__link">Personaliza</a>
+          </li>
+          <li class="nav__item">
+            <a href="about.html" class="nav__link active-link">Nosotros</a>
+          </li>
+          <li class="nav__item">
+            <a href="accounts.html" class="nav__link">Mi cuenta</a>
+          </li>
+        </ul>
+        <div class="header__search">
+          <input type="text" placeholder="Buscar chocolates..." class="form__input">
+          <button class="search__btn">
+            <img src="assets/img/icons/search.png" alt="">
+          </button>
+        </div>
+      </div>
+      <div class="header__user-actions">
+          <a href="wishlist.html" class="header__action-btn">
+            <img src="assets/img/icons/icon-heart.svg" alt="">
+            <span class="count">3</span>
+          </a>
+          <a href="cart.html" class="header__action-btn">
+            <img src="assets/img/icons/icon-cart.svg" alt="">
+            <span class="count">3</span>
+          </a>
+      </div>
+    </nav>
+  </header>
+  <!--================= MAIN =================-->
+  <main class="main">
+    <!--================= BREADCRUMB =================-->
+    <section class="breadcrumb">
+      <ul class="breadcrumb__list flex container">
+        <li><a href="index.html" class="breadcrumb__link">Inicio</a></li>
+        <li><span class="breadcrumb__link">></span></li>
+        <li><span class="breadcrumb__link">Sobre nosotros</span></li>
+      </ul>
+    </section>
+    <!--================= ABOUT: EMPRESA =================-->
+    <section class="about section--lg container">
+      <div class="about__container grid">
+        <div class="about__content">
+          <span class="home__subtitle">Sobre nosotros</span>
+          <h1 class="about__title">Chocolates que <span>se sienten</span></h1>
+          <p class="about__description">
+            ChocoFeel es un emprendimiento bogotano de bombones de chocolate pintados a mano
+            con colorantes comestibles. Creemos que cada emoción tiene su sabor: por eso cada
+            cliente puede elegir la forma, el relleno y la decoración de sus bombones según
+            cómo se siente o lo que quiere celebrar.
+          </p>
+        </div>
+        <img src="assets/img/banner/banner--colors-chocolates.webp" alt="Bombones de chocolate pintados de colores" class="about__img">
+      </div>
+
+      <div class="about__cards grid">
+        <div class="about__card">
+          <i class="fi fi-rs-star about__icon"></i>
+          <h3 class="about__card-title">Misión</h3>
+          <p>
+            Crear bombones artesanales personalizados que ayuden a nuestros clientes a expresar
+            sus emociones y a celebrar los momentos que les importan.
+          </p>
+        </div>
+        <div class="about__card">
+          <i class="fi fi-rs-eye about__icon"></i>
+          <h3 class="about__card-title">Visión</h3>
+          <p>
+            Ser la marca de referencia en Bogotá en chocolates personalizados por emociones,
+            reconocida por su creatividad y la calidad de sus productos.
+          </p>
+        </div>
+        <div class="about__card">
+          <i class="fi fi-rs-heart about__icon"></i>
+          <h3 class="about__card-title">Valores</h3>
+          <p>
+            Creatividad en cada diseño, cercanía con el cliente, calidad artesanal y
+            compromiso con lo que cada persona quiere expresar.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!--================= ABOUT: EQUIPO =================-->
+    <section class="team section--lg">
+      <div class="container">
+        <h3 class="section__title">Nuestro <span>equipo</span></h3>
+        <!-- Para poner una foto: cambia el <div class="team__photo"> por
+             <img src="assets/img/team/nombre.webp" alt="Nombre" class="team__photo"> -->
+        <div class="team__container grid">
+          <div class="team__card">
+            <div class="team__photo" aria-hidden="true">Foto</div>
+            <h4 class="team__name">Nombre de la persona 1</h4>
+            <span class="team__role">Cargo o rol en ChocoFeel</span>
+            <p class="team__description">
+              Escribe aquí una breve descripción: qué estudia, qué hace en el proyecto
+              y qué le gusta del chocolate.
+            </p>
+          </div>
+          <div class="team__card">
+            <div class="team__photo" aria-hidden="true">Foto</div>
+            <h4 class="team__name">Nombre de la persona 2</h4>
+            <span class="team__role">Cargo o rol en ChocoFeel</span>
+            <p class="team__description">
+              Escribe aquí una breve descripción: qué estudia, qué hace en el proyecto
+              y qué le gusta del chocolate.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!--================= FOOTER =================-->
+  <footer class="footer container">
+    <div class="footer__container grid">
+      <div class="footer__content">
+        <a href="index.html" class="footer__logo">
+          <img src="assets/img/marca/logo-chocofeel-mejorado-sinfondo.webp" alt="" class="footer__logo-img">
+        </a>
+        <p class="footer__description">
+          <span>Dirección:</span> Cra. 92 #156-89 Pinar, Bogotá
+        </p>
+        <p class="footer__description">
+          <span>Teléfono:</span> (+57) - 1234 - 5678
+        </p>
+        <p class="footer__description">
+          <span>Horario de atención:</span> 8:00AM - 6:00PM, Lunes - Sabado
+        </p>
+        <div class="footer__social">
+          <h4 class="footer__subtitle">Síguenos en Instagram</h4>
+          <div class="footer__social-links flex">
+            <a href="">
+              <img src="assets/img/icons/icon-facebook.svg" alt="" class="footer__social-icon">
+            </a>
+            <a href="">
+              <img src="assets/img/icons/icon-instagram.svg" alt="" class="footer__social-icon">
+            </a>
+            <a href="">
+              <img src="assets/img/icons/icon-pinterest.svg" alt="" class="footer__social-icon">
+            </a>
+            <a href="">
+              <img src="assets/img/icons/icon-twitter.svg" alt="" class="footer__social-icon">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__content">
+        <h3 class="footer__title">Conócenos</h3>
+        <ul class="footer__links">
+          <li><a href="about.html" class="footer__link">Sobre nosotros</a></li>
+          <li><a href="" class="footer__link">Información de envíos</a></li>
+          <li><a href="" class="footer__link">Política de privacidad</a></li>
+          <li><a href="" class="footer__link">Contáctanos</a></li>
+          <li><a href="" class="footer__link">Centro de ayuda</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__content">
+        <h3 class="footer__title">Mi cuenta</h3>
+        <ul class="footer__links">
+          <li><a href="login-register.html" class="footer__link">Iniciar sesión</a></li>
+          <li><a href="cart.html" class="footer__link">Ver carrito</a></li>
+          <li><a href="wishlist.html" class="footer__link">Mi lista de deseos</a></li>
+          <li><a href="" class="footer__link">Seguir mi pedido</a></li>
+          <li><a href="" class="footer__link">Ayuda</a></li>
+          <li><a href="accounts.html" class="footer__link">Mis pedidos</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__content">
+        <h3 class="footer__title">Métodos de pago seguros</h3>
+
+        <img src="assets/img/payment-method/payment-method.png" alt="" class="payment__img">
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p class="copyright">&copy; 2026 ChocoFeel. Todos los derechos reservados </p>
+      <p class="designer">
+        Diseñado por Thebrinks · Iconos de <a href="https://www.flaticon.es/uicons" 
+        target="_blank">UIcons de Flaticon</a>
+      </p>
+      <p class="designer">
+        Imágenes de referencia con fines académicos
+      </p>
+    </div>
+  </footer>
+  <!--================= JS =================-->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

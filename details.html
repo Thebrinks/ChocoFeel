@@ -126,8 +126,9 @@
 
           <ul class="details__list">
             <li><i class="fi fi-rs-paint-brush"></i> <span id="details-decoration"></span></li>
-            <li><i class="fi fi-rs-box-open"></i> Precio por unidad: aprox. <span data-bonbon-size></span> · también en cajas personalizadas</li>
-            <li><i class="fi fi-rs-marker"></i> Entregas en Bogotá · envío <span id="details-shipping"></span></li>
+            <!-- El texto de cada línea va en un solo <span>: así el flex de <li> no lo parte en columnas -->
+            <li><i class="fi fi-rs-box-open"></i> <span>Precio por unidad: aprox. <span data-bonbon-size></span> · también en cajas personalizadas</span></li>
+            <li><i class="fi fi-rs-marker"></i> <span>Entregas en Bogotá · envío <span id="details-shipping"></span></span></li>
           </ul>
 
           <div class="details__action">

@@ -1534,6 +1534,7 @@ input {
 
 .details__list i {
     display: flex;
+    flex-shrink: 0;
     color: var(--first-color);
 }
 
